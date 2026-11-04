@@ -77,6 +77,30 @@ section{padding-block:72px 24px}
 .strip span{font-size:14px;color:var(--muted);line-height:1.4}
 @media (max-width:720px){.strip{grid-template-columns:1fr}}
 
+/* experience */
+.job{border-top:1px solid var(--line);padding-block:32px}
+.job:last-child{border-bottom:1px solid var(--line)}
+.job-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.job h3{font-size:clamp(24px,3vw,30px);font-weight:700}
+.job .role{margin:4px 0 0;color:var(--muted);font-weight:500}
+.job-head > .label{font-size:15px;letter-spacing:.04em;color:var(--ink);font-variant-numeric:tabular-nums}
+.job-sum{font-size:18px;max-width:65ch;margin:16px 0 0}
+details.more{margin-top:20px}
+details.more summary{list-style:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;font-weight:500;font-size:15px;padding:10px 16px;border:1px solid var(--ink);border-radius:6px;color:var(--ink)}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary::after{content:"+";font-family:var(--mono);font-size:16px;line-height:1}
+details.more[open] summary::after{content:"−"}
+details.more summary:hover{background:var(--ink);color:var(--bg)}
+details.more summary:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+details.more .close-txt{display:none}
+details.more[open] .open-txt{display:none}
+details.more[open] .close-txt{display:inline}
+.more-body{margin-top:28px}
+.role-note{max-width:65ch;color:var(--muted);margin:0 0 8px}
+.role-note b{color:var(--ink)}
+.more-body .case:last-child{border-bottom:0}
+.xteam{margin:0 0 6px;color:var(--accent)}
+
 /* case studies */
 .case{display:grid;grid-template-columns:220px 1fr;gap:32px;padding-block:36px;border-top:1px solid var(--line)}
 .case:last-child{border-bottom:1px solid var(--line)}
@@ -147,7 +171,7 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
   <div class="wrap">
     <a class="me" href="#top">Kaivalya</a>
     <ul>
-      <li><a href="#work">Work</a></li>
+      <li><a href="#work">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li class="opt"><a href="#background">Background</a></li>
       <li><a href="#contact">Contact</a></li>
@@ -174,85 +198,109 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 
   <section id="work">
     <div class="sec-head">
-      <h2>Case studies</h2>
-      <span class="label">ICICI Bank · Aug 2025 – present</span>
+      <h2>Experience</h2>
     </div>
 
-    <article class="case">
-      <aside>
-        <div class="metric"><b><span class="hl">−50%</span></b><span>turnaround time for business-rule changes</span></div>
-      </aside>
-      <div>
-        <h3>One API for FD closure and OD creation</h3>
-        <div class="tags"><span class="tag">API design</span><span class="tag">Rule engine</span><span class="tag">Admin tooling</span></div>
-        <dl class="pai">
-          <div><dt>Problem</dt><dd>FD/RD closure and overdraft creation ran on separate APIs with near-identical requests. Every change to a value-based rule, like an interest rate tied to deposit amount and scheme, needed code, a sprint slot and a release: one to two weeks for a small change.</dd></div>
-          <div><dt>Approach</dt><dd>Designed a single API for both journeys in three layers, so business rules live in config instead of code. Rules and values became editable from an admin portal.
-            <div class="layers" aria-label="Three layer API design">
-              <span class="box">Common request</span><span class="arrow">→</span>
-              <span class="box">Configurable validation</span><span class="arrow">→</span>
-              <span class="box">Configurable auth</span>
-            </div></dd></div>
-          <div><dt>Impact</dt><dd><ul>
-            <li>Rule changes went from a release cycle to minutes or hours in the portal</li>
-            <li>Removed duplicate APIs and cut engineering dependency for regulatory updates</li>
-          </ul></dd></div>
-        </dl>
+    <article class="job">
+      <div class="job-head">
+        <div>
+          <h3>ICICI Bank</h3>
+          <p class="role">Technical Product Manager</p>
+        </div>
+        <span class="label">Aug 2025 – present</span>
       </div>
+      <p class="job-sum">At ICICI Bank I own <strong>Accounts</strong> and <strong>Deposits</strong>, from dashboards and statements to FDs, RDs and PPF, across 80+ APIs and 4 platforms. Wins so far include <span class="hl">+7% FD success</span>, <span class="hl">50% faster rule changes</span> and <span class="hl">~80% less targeted fraud</span>.</p>
+      <details class="more">
+        <summary><span class="open-txt">Know more</span><span class="close-txt">Show less</span></summary>
+        <div class="more-body">
+          <p class="role-note"><b>My role.</b> I set the roadmap for my areas, write PRDs, prioritise the backlog and ship with engineering in Agile sprints. I work with ops, customer support, risk and business teams to find problems and track KPIs. A few stories:</p>
+        <article class="case">
+          <aside>
+            <div class="metric"><b><span class="hl">−50%</span></b><span>turnaround time for business-rule changes</span></div>
+          </aside>
+          <div>
+            <h3>One API for FD closure and OD creation</h3>
+            <div class="tags"><span class="tag">API design</span><span class="tag">Rule engine</span><span class="tag">Admin tooling</span></div>
+            <dl class="pai">
+              <div><dt>Problem</dt><dd>FD/RD closure and overdraft creation ran on separate APIs with near-identical requests. Every change to a value-based rule, like an interest rate tied to deposit amount and scheme, needed code, a sprint slot and a release: one to two weeks for a small change.</dd></div>
+              <div><dt>Approach</dt><dd>Designed a single API for both journeys in three layers, so business rules live in config instead of code. Rules and values became editable from an admin portal.
+                <div class="layers" aria-label="Three layer API design">
+                  <span class="box">Common request</span><span class="arrow">→</span>
+                  <span class="box">Configurable validation</span><span class="arrow">→</span>
+                  <span class="box">Configurable auth</span>
+                </div></dd></div>
+              <div><dt>Impact</dt><dd><ul>
+                <li>Rule changes went from a release cycle to minutes or hours in the portal</li>
+                <li>Removed duplicate APIs and cut engineering dependency for regulatory updates</li>
+              </ul></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case">
+          <aside>
+            <div class="metric"><b><span class="hl">+7%</span></b><span>FD/RD creation success rate</span></div>
+            <div class="metric"><b>−50%</b><span>manual service requests for failed FDs</span></div>
+          </aside>
+          <div>
+            <h3>Recovering failed deposit creations</h3>
+            <div class="tags"><span class="tag">Funnel analytics</span><span class="tag">Async design</span><span class="tag">Ops efficiency</span></div>
+            <dl class="pai">
+              <div><dt>Problem</dt><dd>When a backend call blipped, FD creation failed and fell into a manual service request with a 1–2 day turnaround. Customers lost confidence, ops carried the load and the bank lost deposits.</dd></div>
+              <div><dt>Approach</dt><dd>Funnel analysis with ops and backend teams showed about 70% of failures were short-lived. I redesigned the journey to retry creation asynchronously at set intervals and raise a service request only after every retry fails.</dd></div>
+              <div><dt>Impact</dt><dd><ul>
+                <li>7% more FDs/RDs created successfully, fewer drop-offs</li>
+                <li>Half the manual SR workload for ops, and customers get a clear outcome faster</li>
+              </ul></dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case">
+          <aside>
+            <div class="metric"><b><span class="hl">~80%</span></b><span>drop in a targeted fraud pattern</span></div>
+          </aside>
+          <div>
+            <h3>Stopping FD-closure fraud on elderly customers</h3>
+            <div class="tags"><span class="tag">Risk</span><span class="tag">Behavioural signals</span><span class="tag">Real-time alerts</span></div>
+            <dl class="pai">
+              <div><dt>Problem</dt><dd>Support and ops data showed a pattern: fraudsters persuaded elderly customers to close FDs and move the money out right away. The fraud lived in the sequence of actions, so single-event checks missed it.</dd></div>
+              <div><dt>Approach</dt><dd>Defined the signals with our fraud analytics partner: large sudden closures, high-value transfers right after, new beneficiaries, and deviation from the customer's own history. Real-time risk scores trigger an alert or step-up authentication, so genuine users stay unaffected.</dd></div>
+              <div><dt>Impact</dt><dd>Around 80% fewer cases of this pattern, tracked alongside false-positive rate and complaints to protect genuine users.</dd></div>
+            </dl>
+          </div>
+        </article>
+        <article class="case">
+          <aside>
+            <div class="metric"><b><span class="hl">−30%</span></b><span>repeat SRs and card-block time</span></div>
+            <div class="metric"><b>−25%</b><span>dispute resolution time</span></div>
+          </aside>
+          <div>
+            <p class="label xteam">Cross-team project</p>
+            <h3>Credit card disputes without the runaround</h3>
+            <div class="tags"><span class="tag">Workflow redesign</span><span class="tag">Data standards</span><span class="tag">Routing</span></div>
+            <dl class="pai">
+              <div><dt>Problem</dt><dd>2–3 ops teams worked each dispute in sequence. Missing data forced new SRs mid-case, and each new SR reset the customer's TAT and blocked the card again. Many requests landed with the wrong team or weren't disputable at all.</dd></div>
+              <div><dt>Approach</dt><dd><ul>
+                <li><b>Parent–child SRs:</b> one customer-facing SR sets the TAT and card block once; internal hand-offs happen in child SRs</li>
+                <li><b>One SR schema</b> that auto-fetches transaction and merchant data at creation</li>
+                <li><b>Pre-validation and routing</b> that rejects non-disputable cases up front and sends the rest to the right team first time</li>
+              </ul></dd></div>
+              <div><dt>Impact</dt><dd>No more repeated block/unblock cycles, one TAT commitment per dispute, and faster resolution because the first SR is complete.</dd></div>
+            </dl>
+          </div>
+        </article>
+        </div>
+      </details>
     </article>
 
-    <article class="case">
-      <aside>
-        <div class="metric"><b><span class="hl">+7%</span></b><span>FD/RD creation success rate</span></div>
-        <div class="metric"><b>−50%</b><span>manual service requests for failed FDs</span></div>
-      </aside>
-      <div>
-        <h3>Recovering failed deposit creations</h3>
-        <div class="tags"><span class="tag">Funnel analytics</span><span class="tag">Async design</span><span class="tag">Ops efficiency</span></div>
-        <dl class="pai">
-          <div><dt>Problem</dt><dd>When a backend call blipped, FD creation failed and fell into a manual service request with a 1–2 day turnaround. Customers lost confidence, ops carried the load and the bank lost deposits.</dd></div>
-          <div><dt>Approach</dt><dd>Funnel analysis with ops and backend teams showed about 70% of failures were short-lived. I redesigned the journey to retry creation asynchronously at set intervals and raise a service request only after every retry fails.</dd></div>
-          <div><dt>Impact</dt><dd><ul>
-            <li>7% more FDs/RDs created successfully, fewer drop-offs</li>
-            <li>Half the manual SR workload for ops, and customers get a clear outcome faster</li>
-          </ul></dd></div>
-        </dl>
+    <article class="job">
+      <div class="job-head">
+        <div>
+          <h3>Rodic Consultants</h3>
+          <p class="role">Consulting Intern</p>
+        </div>
+        <span class="label">May – Jul 2024</span>
       </div>
-    </article>
-
-    <article class="case">
-      <aside>
-        <div class="metric"><b><span class="hl">−30%</span></b><span>repeat SRs and card-block time</span></div>
-        <div class="metric"><b>−25%</b><span>dispute resolution time</span></div>
-      </aside>
-      <div>
-        <h3>Credit card disputes without the runaround</h3>
-        <div class="tags"><span class="tag">Workflow redesign</span><span class="tag">Data standards</span><span class="tag">Routing</span></div>
-        <dl class="pai">
-          <div><dt>Problem</dt><dd>2–3 ops teams worked each dispute in sequence. Missing data forced new SRs mid-case, and each new SR reset the customer's TAT and blocked the card again. Many requests landed with the wrong team or weren't disputable at all.</dd></div>
-          <div><dt>Approach</dt><dd><ul>
-            <li><b>Parent–child SRs:</b> one customer-facing SR sets the TAT and card block once; internal hand-offs happen in child SRs</li>
-            <li><b>One SR schema</b> that auto-fetches transaction and merchant data at creation</li>
-            <li><b>Pre-validation and routing</b> that rejects non-disputable cases up front and sends the rest to the right team first time</li>
-          </ul></dd></div>
-          <div><dt>Impact</dt><dd>No more repeated block/unblock cycles, one TAT commitment per dispute, and faster resolution because the first SR is complete.</dd></div>
-        </dl>
-      </div>
-    </article>
-
-    <article class="case">
-      <aside>
-        <div class="metric"><b><span class="hl">~80%</span></b><span>drop in a targeted fraud pattern</span></div>
-      </aside>
-      <div>
-        <h3>Stopping FD-closure fraud on elderly customers</h3>
-        <div class="tags"><span class="tag">Risk</span><span class="tag">Behavioural signals</span><span class="tag">Real-time alerts</span></div>
-        <dl class="pai">
-          <div><dt>Problem</dt><dd>Support and ops data showed a pattern: fraudsters persuaded elderly customers to close FDs and move the money out right away. The fraud lived in the sequence of actions, so single-event checks missed it.</dd></div>
-          <div><dt>Approach</dt><dd>Defined the signals with our fraud analytics partner: large sudden closures, high-value transfers right after, new beneficiaries, and deviation from the customer's own history. Real-time risk scores trigger an alert or step-up authentication, so genuine users stay unaffected.</dd></div>
-          <div><dt>Impact</dt><dd>Around 80% fewer cases of this pattern, tracked alongside false-positive rate and complaints to protect genuine users.</dd></div>
-        </dl>
-      </div>
+      <p class="job-sum">Assessed Bihar's infrastructure and renewable energy capacity for a green hydrogen and ammonia market, and recommended how BREDA could attract industry and make Bihar a GH2 hub by 2030.</p>
     </article>
   </section>
 
@@ -322,10 +370,8 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
       <div>
         <p class="label" style="margin:0 0 18px">Experience &amp; education</p>
         <ol class="timeline">
-          <li><span class="when">2025 – now</span><div><h3>Product Manager, ICICI Bank</h3><p>Deposits, overdrafts and card servicing APIs. Agile/Scrum, PRDs, roadmap and KPI tracking across 4 platforms.</p></div></li>
           <li><span class="when">2024 – 2025</span><div><h3>Business Head, Enactus IIT Roorkee</h3><p>Led 20 people across 4 social ventures; partnerships with government bodies and TUM.</p></div></li>
           <li><span class="when">2024 – 2025</span><div><h3>Marketing &amp; Sponsorship Head, MaRS Robotics</h3><p>Industry sponsorships and workshops reaching 400+ students.</p></div></li>
-          <li><span class="when">Summer 2024</span><div><h3>Consulting Intern, Rodic Consultants</h3><p>Green hydrogen and ammonia market study for Bihar's renewable energy agency (BREDA), with a roadmap to make Bihar a GH2 hub by 2030.</p></div></li>
           <li><span class="when">2021 – 2025</span><div><h3>B.Tech Electrical Engineering, IIT Roorkee</h3><p>JEE Advanced AIR 4782 (top 2.5%).</p></div></li>
         </ol>
       </div>
