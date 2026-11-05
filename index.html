@@ -216,6 +216,20 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 .methods span{font-size:14.5px;color:var(--muted);line-height:1.45}
 .ba3{grid-template-columns:repeat(3,1fr);margin-top:14px}
 @media (max-width:820px){.pains,.methods{grid-template-columns:1fr} .ba3{grid-template-columns:1fr}}
+.proj.ark{padding:0;overflow:hidden;gap:0}
+.ark-cover{display:block;width:100%;aspect-ratio:1728/600;object-fit:cover;object-position:center 40%;border-bottom:1px solid var(--line)}
+.ark-in{padding:28px 36px 32px;display:flex;flex-direction:column;gap:14px}
+.ark details.more{margin-top:6px}
+.ark .up-body{gap:28px}
+.ark-gal{display:grid;grid-template-columns:1fr;gap:16px;max-width:640px}
+.ark-team{margin:16px 0 0;max-width:640px}
+.ark-team img{display:block;width:100%;border-radius:8px;border:1px solid var(--line)}
+.ark-team figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+.ark .why{margin:0;padding:12px 16px;border-left:3px solid var(--accent);background:var(--bg);border-radius:0 6px 6px 0;font-size:15px;color:var(--ink);max-width:72ch}
+.ark-gal figure{margin:0}
+.ark-gal img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.ark-gal figcaption{font-size:13px;color:var(--muted);margin-top:6px}
+@media (max-width:820px){.ark-in{padding:20px} .ark-cover{aspect-ratio:16/9} .ark-gal{grid-template-columns:1fr}}
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .proof-card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);background:var(--bg)}
 .proof-card:hover{border-color:var(--ink)}
@@ -465,6 +479,46 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
           </div>
         </details>
       </article>
+      <article class="proj feature ark">
+        <img class="ark-cover" src="img/ark/products.jpg" alt="Ark natural gulaal packs in three shades, peela, gulabi and narangi, with the Holi gift hamper boxes" loading="lazy">
+        <div class="ark-in">
+          <span class="label">Enactus IIT Roorkee · Dec 2023 – Mar 2024 · Project lead</span>
+          <h3 class="up-title">Ark: temple flowers → natural Holi gulaal</h3>
+          <p class="pitch">Led a team of 7 to turn temple flower waste into skin-safe gulaal, handmade by rural women, and sold it across campus, city shops, schools and gifting businesses.</p>
+          <ul class="up-stats">
+            <li><b><span class="hl">₹1.5L</span></b><span>revenue in one Holi season</span></li>
+            <li><b>2.4K+</b><span>units sold</span></li>
+            <li><b>12 women</b><span>15 days of paid work</span></li>
+          </ul>
+          <p class="why"><b>Why it's here:</b> it shows <b>leadership</b>, running a team of 7, and <b>stakeholder management</b> across temples, a women's self-help group, shops, schools and corporate buyers.</p>
+          <details class="more">
+            <summary><span class="open-txt">Know more</span><span class="close-txt">Show less</span></summary>
+            <div class="more-body up-body">
+              <div class="up-part">
+                <p class="label part-n">The problem</p>
+                <p>Temple flowers end up in rivers. Holi colours are full of chemicals. And rural women have few ways to earn close to home.</p>
+              </div>
+              <div class="up-part">
+                <p class="label part-n">What I did</p>
+                <ol class="methods">
+                  <li><b>Supply chain</b><span>Tied up with 4 temples in Haridwar and Roorkee, incl. Mansa Devi and Har Ki Pauri, for regular flower pickup.</span></li>
+                  <li><b>Production</b><span>Set up gulaal making with a women's self-help group: flower extract on a cornstarch base, lab tested.</span></li>
+                  <li><b>Product</b><span>3 shades (peela, gulabi, narangi) plus a Holi gift hamper with thandai, dry fruits and a T-shirt.</span></li>
+                  <li><b>Distribution</b><span>Led sales on IIT Roorkee campus, in city shops, schools and with gifting businesses.</span></li>
+                </ol>
+                <figure class="ark-team"><img src="img/ark/team.jpg" alt="The student team with two self-help group members beside drying yellow and orange gulaal" loading="lazy"><figcaption>Our team with the self-help group, gulaal drying in front</figcaption></figure>
+              </div>
+              <div class="up-part">
+                <p class="label part-n">Impact</p>
+                <p><b>150 kg</b> of flowers became <b>360 kg</b> of gulaal. <b>2.4K+</b> units sold, <b>₹1.5 lakh</b> revenue, and <b>15 days</b> of paid work for <b>12 women</b>.</p>
+              </div>
+              <div class="ark-gal">
+                <figure><img src="img/ark/making.jpg" alt="Women from the self-help group mixing yellow gulaal by hand, wearing gloves and hair nets" loading="lazy"><figcaption>Making gulaal with the women's self-help group</figcaption></figure>
+              </div>
+            </div>
+          </details>
+        </div>
+      </article>
       <article class="proj">
         <div class="top"><h3>Groww retention</h3><span class="label">Jan 2026</span></div>
         <p>Retention teardown of the Groww investing app for new users.</p>
@@ -483,15 +537,6 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
           <li>Modelled unit economics to a 25% margin and 2-year payback</li>
         </ul>
         <div class="foot"><span class="tag">Hult Prize · Top 12 India</span></div>
-      </article>
-      <article class="proj">
-        <div class="top"><h3>Ark</h3><span class="label">Dec 2023 – Mar 2024</span></div>
-        <p>Turned temple floral waste into organic gulal, made by rural women's self-help groups.</p>
-        <ul>
-          <li>150 kg of flowers became 360 kg of gulal; 2.4K+ units sold</li>
-          <li>15 days of paid work for 12 women and ₹1.5 lakh in revenue</li>
-        </ul>
-        <div class="foot"><span class="tag">Enactus</span><span class="tag">Social enterprise</span></div>
       </article>
     </div>
   </section>
