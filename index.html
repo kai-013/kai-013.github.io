@@ -112,7 +112,7 @@ details.more[open] .close-txt{display:inline}
 .case .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px}
 .tag{font-family:var(--mono);font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
 .pai{display:grid;gap:14px;min-width:0}
-.pai div{display:grid;grid-template-columns:96px 1fr;gap:12px}
+.pai div{display:grid;grid-template-columns:112px 1fr;gap:12px}
 .pai dt{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);padding-top:4px}
 .pai dd{margin:0;min-width:0}
 .pai ul{margin:0;padding-left:18px}
@@ -209,82 +209,60 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
         </div>
         <span class="label">Aug 2025 – present</span>
       </div>
-      <p class="job-sum">At ICICI Bank I own <strong>Accounts</strong> and <strong>Deposits</strong>, from dashboards and statements to FDs, RDs and PPF. I drive journeys end to end, from screen design to frontend and backend, across 3 platforms and 80+ APIs. Wins so far include <span class="hl">+7% FD success</span>, <span class="hl">50% faster rule changes</span> and <span class="hl">~80% less targeted fraud</span>.</p>
+      <p class="job-sum">At ICICI Bank I own <strong>Accounts</strong> and <strong>Deposits</strong>, from dashboards and statements to FDs, RDs and PPF. I drive journeys end to end, from screen design to frontend and backend, across 3 platforms and 80+ APIs. Wins so far include <span class="hl">+7% FD success</span> and <span class="hl">50% faster rule changes</span>, plus a fraud-prevention feature expected to cut a targeted fraud pattern by <span class="hl">~80%</span>.</p>
       <details class="more">
         <summary><span class="open-txt">Know more</span><span class="close-txt">Show less</span></summary>
         <div class="more-body">
-          <p class="role-note"><b>My role.</b> I take requirements from the business team, get sign-off from compliance and set priorities. I turn that into a PRD and a roadmap, then bring in the design team to shape the screens and drive the build through frontend and backend teams to launch. After release, I track KPIs and feed what I learn back into the backlog. A few stories:</p>
         <article class="case">
           <aside>
-            <div class="metric"><b><span class="hl">−50%</span></b><span>turnaround time for business-rule changes</span></div>
+            <div class="metric"><b><span class="hl">+7%</span></b><span>fixed deposit success rate</span></div>
+            <div class="metric"><b>−50%</b><span>manual support tickets</span></div>
           </aside>
           <div>
-            <h3>One API for FD closure and OD creation</h3>
-            <div class="tags"><span class="tag">API design</span><span class="tag">Rule engine</span><span class="tag">Admin tooling</span></div>
+            <h3>Saving deposits lost to technical glitches</h3>
             <dl class="pai">
-              <div><dt>Problem</dt><dd>FD/RD closure and overdraft creation ran on separate APIs with near-identical requests. Every change to a value-based rule, like an interest rate tied to deposit amount and scheme, needed code, a sprint slot and a release: one to two weeks for a small change.</dd></div>
-              <div><dt>Approach</dt><dd>Designed a single API for both journeys in three layers, so business rules live in config instead of code. Rules and values became editable from an admin portal.
-                <div class="layers" aria-label="Three layer API design">
-                  <span class="box">Common request</span><span class="arrow">→</span>
-                  <span class="box">Configurable validation</span><span class="arrow">→</span>
-                  <span class="box">Configurable auth</span>
-                </div></dd></div>
-              <div><dt>Impact</dt><dd><ul>
-                <li>Rule changes went from a release cycle to minutes or hours in the portal</li>
-                <li>Removed duplicate APIs and cut engineering dependency for regulatory updates</li>
-              </ul></dd></div>
+              <div><dt>Problem</dt><dd>A brief backend failure failed the customer's fixed deposit and turned it into a support ticket with a 1–2 day wait.</dd></div>
+              <div><dt>What I did</dt><dd>Dug into the failure funnel with ops and backend teams and found ~70% of failures fixed themselves within minutes. Redesigned the journey to retry quietly in the background and took it from spec to launch.</dd></div>
+              <div><dt>Key decision</dt><dd>Retry first, and raise a ticket only after every retry fails, so most customers never see the failure.</dd></div>
             </dl>
           </div>
         </article>
         <article class="case">
           <aside>
-            <div class="metric"><b><span class="hl">+7%</span></b><span>FD/RD creation success rate</span></div>
-            <div class="metric"><b>−50%</b><span>manual service requests for failed FDs</span></div>
+            <div class="metric"><b><span class="hl">~80%</span></b><span>expected drop in a targeted fraud pattern</span></div>
           </aside>
           <div>
-            <h3>Recovering failed deposit creations</h3>
-            <div class="tags"><span class="tag">Funnel analytics</span><span class="tag">Async design</span><span class="tag">Ops efficiency</span></div>
+            <h3>Protecting elderly customers from deposit fraud</h3>
             <dl class="pai">
-              <div><dt>Problem</dt><dd>When a backend call blipped, FD creation failed and fell into a manual service request with a 1–2 day turnaround. Customers lost confidence, ops carried the load and the bank lost deposits.</dd></div>
-              <div><dt>Approach</dt><dd>Funnel analysis with ops and backend teams showed about 70% of failures were short-lived. I redesigned the journey to retry creation asynchronously at set intervals and raise a service request only after every retry fails.</dd></div>
-              <div><dt>Impact</dt><dd><ul>
-                <li>7% more FDs/RDs created successfully, fewer drop-offs</li>
-                <li>Half the manual SR workload for ops, and customers get a clear outcome faster</li>
-              </ul></dd></div>
+              <div><dt>Problem</dt><dd>Fraudsters talked elderly customers into closing their fixed deposits and moving the money out right away. Each step looked normal on its own, so standard checks missed it.</dd></div>
+              <div><dt>What I did</dt><dd>Traced the pattern through support and ops data and defined the risk signals with our fraud analytics partner. Then designed <b>Trusted Guardian</b>: an elderly customer names someone they trust, who can verify flagged payments before the money moves.</dd></div>
+              <div><dt>Key decision</dt><dd>Bring in the guardian only for flagged cases, not every payment, so everyday banking stays smooth.</dd></div>
             </dl>
           </div>
         </article>
         <article class="case">
           <aside>
-            <div class="metric"><b><span class="hl">~80%</span></b><span>drop in a targeted fraud pattern</span></div>
+            <div class="metric"><b><span class="hl">−50%</span></b><span>turnaround on business-rule changes</span></div>
           </aside>
           <div>
-            <h3>Stopping FD-closure fraud on elderly customers</h3>
-            <div class="tags"><span class="tag">Risk</span><span class="tag">Behavioural signals</span><span class="tag">Real-time alerts</span></div>
+            <h3>Business rule changes without a release</h3>
             <dl class="pai">
-              <div><dt>Problem</dt><dd>Support and ops data showed a pattern: fraudsters persuaded elderly customers to close FDs and move the money out right away. The fraud lived in the sequence of actions, so single-event checks missed it.</dd></div>
-              <div><dt>Approach</dt><dd>Defined the signals with our fraud analytics partner: large sudden closures, high-value transfers right after, new beneficiaries, and deviation from the customer's own history. Real-time risk scores trigger an alert or step-up authentication, so genuine users stay unaffected.</dd></div>
-              <div><dt>Impact</dt><dd>Around 80% fewer cases of this pattern, tracked alongside false-positive rate and complaints to protect genuine users.</dd></div>
+              <div><dt>Problem</dt><dd>Deposit closure and overdraft creation ran on two near-identical APIs. Changing even an interest-rate rule took code, a sprint slot and a release: 1–2 weeks.</dd></div>
+              <div><dt>What I did</dt><dd>Designed one API for both journeys with rules moved from code into config, and shipped an admin portal where the business team edits them directly.</dd></div>
+              <div><dt>Key decision</dt><dd>Merge the two APIs instead of patching each one: more work upfront, but no engineering dependency for future regulatory changes.</dd></div>
             </dl>
           </div>
         </article>
         <article class="case">
           <aside>
-            <div class="metric"><b><span class="hl">−30%</span></b><span>repeat SRs and card-block time</span></div>
-            <div class="metric"><b>−25%</b><span>dispute resolution time</span></div>
+            <div class="metric"><b><span class="hl">In progress</span></b><span>nominee choice in the FD journey</span></div>
           </aside>
           <div>
-            <p class="label xteam">Cross-team project</p>
-            <h3>Credit card disputes without the runaround</h3>
-            <div class="tags"><span class="tag">Workflow redesign</span><span class="tag">Data standards</span><span class="tag">Routing</span></div>
+            <h3>Letting customers choose their FD nominee</h3>
             <dl class="pai">
-              <div><dt>Problem</dt><dd>2–3 ops teams worked each dispute in sequence. Missing data forced new SRs mid-case, and each new SR reset the customer's TAT and blocked the card again. Many requests landed with the wrong team or weren't disputable at all.</dd></div>
-              <div><dt>Approach</dt><dd><ul>
-                <li><b>Parent–child SRs:</b> one customer-facing SR sets the TAT and card block once; internal hand-offs happen in child SRs</li>
-                <li><b>One SR schema</b> that auto-fetches transaction and merchant data at creation</li>
-                <li><b>Pre-validation and routing</b> that rejects non-disputable cases up front and sends the rest to the right team first time</li>
-              </ul></dd></div>
-              <div><dt>Impact</dt><dd>No more repeated block/unblock cycles, one TAT commitment per dispute, and faster resolution because the first SR is complete.</dd></div>
+              <div><dt>Problem</dt><dd>The nominee on a new fixed deposit is copied from the customer's savings account, with no way to choose someone else.</dd></div>
+              <div><dt>What I did</dt><dd>Designed the nominee step in the FD journey, signed off the screens, and decided the backend architecture with the backend and compliance teams.</dd></div>
+              <div><dt>Key decision</dt><dd>Keep the savings account nominee as the one-tap default and make choosing someone else optional, so the journey stays fast.</dd></div>
             </dl>
           </div>
         </article>
