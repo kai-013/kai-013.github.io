@@ -635,6 +635,76 @@ details.more[open] .rh-bars i,details.more[open] .rh-split i{animation:rhgrow .8
   .rh-time li{border-top:0;padding:0}
   .rh-time li::before{left:-25px;top:3px}
 }
+/* upsorb visuals */
+.up-part{--uv-a:var(--blue-2,var(--accent));--uv-b:var(--orange-2,var(--mark));--uv-bad:#C8453C}
+.uv-cap{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.uv-gap{display:grid;grid-template-columns:200px auto 1fr;gap:18px;align-items:center;max-width:720px;margin:14px 0 22px}
+.uv-lms,.uv-why{border:1.5px solid var(--line);background:var(--surface);padding:14px 16px}
+.uv-lms b{display:block;font-family:var(--display);font-size:40px;line-height:1;color:var(--muted)}
+.uv-lms b small{font-family:var(--body);font-size:13px;font-weight:500;letter-spacing:0;vertical-align:3px;margin-left:2px}
+.uv-lms em{display:block;margin-top:6px;font-size:13px;color:var(--muted)}
+.uv-to{font-size:24px;color:var(--uv-b)}
+.uv-why{border-color:var(--uv-a)}
+.uv-why p{display:grid;grid-template-columns:56px 1fr;gap:8px;margin:0 0 4px!important;font-size:14.5px!important}
+.uv-why i{font-style:normal;font-family:var(--mono);font-size:11.5px;color:var(--uv-a);text-transform:uppercase;letter-spacing:.05em;padding-top:2px}
+.uv-voice b{font-family:var(--display);font-size:26px;color:var(--uv-b);vertical-align:-2px;margin:0 2px}
+.uv-pains li{display:flex;gap:12px;align-items:flex-start;border-left:0;border:1.5px solid var(--line);border-radius:2px;background:var(--surface);padding:14px}
+.uv-pains svg{flex:0 0 22px;width:22px;height:22px;fill:none;stroke:var(--uv-b);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
+.uv-loop{list-style:none;margin:16px 0 26px;padding:0 0 26px;display:grid;grid-template-columns:repeat(4,1fr);gap:28px;position:relative;max-width:760px;counter-reset:lp}
+.uv-loop li{counter-increment:lp;position:relative;display:flex;flex-direction:column;gap:2px;padding:12px 14px;border:1.5px solid var(--ink);background:var(--surface)}
+.uv-loop li::before{content:counter(lp,decimal-leading-zero);font-family:var(--mono);font-size:11px;color:var(--uv-a)}
+.uv-loop li + li::after{content:"→";position:absolute;left:-22px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.uv-loop b{font-family:var(--display);font-size:18px}
+.uv-loop span{font-size:13px;color:var(--muted);line-height:1.35}
+.uv-loop{padding-bottom:44px}
+.uv-loop::after{content:"";position:absolute;left:12%;right:12%;bottom:22px;height:16px;border:1.5px dashed var(--uv-a);border-top:0}
+.uv-loop::before{content:"↺ repeats with every homework";position:absolute;left:0;right:0;bottom:0;font-family:var(--mono);font-size:11.5px;color:var(--uv-a);text-align:center}
+.uv-bars{display:grid;gap:14px;max-width:760px;margin:8px 0 22px}
+.uv-bar{display:grid;grid-template-columns:200px 1fr 110px;gap:14px;align-items:center}
+.uv-bar .t{font-size:14px;color:var(--ink)}
+.uv-bar p{margin:0!important;display:flex;flex-direction:column;gap:4px;max-width:none!important}
+.uv-bar i{display:block;width:var(--w);min-width:44px;height:20px;font-style:normal;font-family:var(--mono);font-size:11.5px;line-height:20px;padding:0 6px;white-space:nowrap;box-sizing:border-box}
+.uv-bar i.o{background:var(--line);color:var(--muted)} .uv-bar i.n{background:var(--uv-a);color:#0E1220}
+.uv-bar b{font-family:var(--display);font-size:17px;color:var(--uv-b);text-align:right}
+.uv-key{margin:0!important;font-size:12.5px!important;color:var(--muted)!important;display:flex;gap:6px;align-items:center}
+.uv-key i{display:inline-block;width:12px;height:12px;margin-left:8px} .uv-key i.o{background:var(--line)} .uv-key i.n{background:var(--uv-a)}
+details.more[open] .uv-bar i.n{animation:uvgrow .9s ease both}
+@keyframes uvgrow{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.uv-methods{grid-template-columns:repeat(3,1fr);gap:12px}
+.uv-methods li{padding:14px;border:1.5px solid var(--line);background:var(--surface);gap:4px}
+.uv-methods li::before{position:static;display:inline-grid;place-items:center;width:24px;height:24px;background:var(--uv-a);color:#0E1220;margin-bottom:4px}
+.uv-methods span{font-size:13.5px}
+.uv-chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px;margin:8px 0 18px}
+.uv-chain span{position:relative;font-size:13.5px;padding:7px 11px;border:1.5px solid var(--line);background:var(--surface)}
+.uv-chain span + span::before{content:"→";position:absolute;left:-18px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.uv-chain .out{border-color:var(--uv-b);color:var(--ink);font-weight:600}
+.uv-proofs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:16px}
+.uv-proofs > div{display:flex;flex-direction:column;gap:6px;padding:16px;border:1.5px solid var(--line);background:var(--surface)}
+.uv-proofs b{font-family:var(--display);font-size:22px;line-height:1.1}
+.uv-proofs span{font-size:13px;color:var(--muted);line-height:1.35}
+.uv-sq,.uv-dots,.uv-ab{margin:0 0 4px!important;display:flex;flex-wrap:wrap;gap:3px;min-height:26px;align-content:flex-start}
+.uv-sq i{width:11px;height:11px;background:var(--uv-a)}
+.uv-dots i{width:5px;height:5px;border-radius:50%;background:var(--uv-b);opacity:.85}
+.uv-ab{flex-direction:column;flex-wrap:nowrap;gap:5px}
+.uv-ab i{display:block;height:8px;width:var(--w);min-width:4px;background:var(--uv-bad)} .uv-ab i.good{background:var(--uv-a)}
+.uv-dec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.up .uv-dec div{display:flex;flex-direction:column;gap:6px;padding:16px;border:1.5px solid var(--line);border-top:3px solid var(--uv-b);background:var(--surface)}
+.uv-dec dt{padding:0;font-family:var(--display)!important;font-size:17px!important;letter-spacing:0!important;text-transform:none!important;color:var(--ink)!important}
+.uv-dec dd{font-size:14.5px!important;color:var(--muted)}
+.uv-stack{display:grid;gap:6px;max-width:560px;margin-top:6px}
+.uv-stack p{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:0!important;padding:8px 10px;border:1.5px solid var(--line);background:var(--surface)}
+.uv-stack p:nth-child(2){margin-left:18px!important} .uv-stack p:nth-child(3){margin-left:36px!important} .uv-stack p:nth-child(4){margin-left:54px!important}
+.uv-stack i{font-style:normal;font-family:var(--mono);font-size:11.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--uv-a);width:96px}
+@media (prefers-reduced-motion: reduce){details.more[open] .uv-bar i.n{animation:none}}
+@media (max-width:820px){
+  .uv-gap{grid-template-columns:1fr} .uv-to{transform:rotate(90deg);justify-self:start;margin-left:20px}
+  .uv-loop{grid-template-columns:1fr 1fr;gap:12px 28px}
+  .uv-loop li:nth-child(3)::after{content:none}
+  .uv-loop::after{left:6%;right:6%}
+  .uv-bar{grid-template-columns:1fr auto;gap:6px 10px} .uv-bar p{grid-column:1/-1;grid-row:2} .uv-bar .t{grid-column:1}
+  .uv-methods,.uv-proofs,.uv-dec{grid-template-columns:1fr}
+  .uv-stack p:nth-child(n){margin-left:0!important}
+}
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .proof-card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);background:var(--bg)}
 .proof-card:hover{border-color:var(--ink)}
@@ -1144,24 +1214,35 @@ o──┘</pre>
               <p class="label part-n">01 · The problem</p>
               <h4>Teachers can't see who is lacking where</h4>
               <p>Today's LMS tools show scores, not <i>why</i> a student scored low: which topic, at which level of understanding. And they stop there, with no way to act on it. Students, meanwhile, copy answers from AI and learn nothing.</p>
-              <p class="muted">I spoke with 20 educators. What they told me:</p>
-              <ul class="pains">
-                <li><b>Checking homework eats hours</b> every week.</li>
-                <li><b>Competency-based learning under NEP</b> is hard to deliver with today's tools.</li>
-                <li><b>Tools don't talk to each other</b>, so teachers move data back and forth by hand.</li>
-                <li><b>AI isn't accurate enough</b> to trust without checking.</li>
+              <div class="uv-gap" aria-hidden="true">
+                <div class="uv-lms"><span class="uv-cap">An LMS shows</span><b>62% <small>scored</small></b><em>…and stops there</em></div>
+                <span class="uv-to">→</span>
+                <div class="uv-why"><span class="uv-cap">A teacher needs</span><p><i>Topic</i>Geometric progression</p><p><i>Depth</i>Can recall, can't apply yet</p><p><i>Next</i>Re-teach with a worked example</p></div>
+              </div>
+              <p class="uv-voice">I spoke with <b>20</b> educators. What they told me:</p>
+              <ul class="pains uv-pains">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span><b>Checking homework eats hours</b> every week.</span></li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h9l3 3v15H6z"/><path d="M9 11h6M9 15h6"/></svg><span><b>Competency-based learning under NEP</b> is hard to deliver with today's tools.</span></li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 15l-2 2a3 3 0 0 1-4-4l3-3a3 3 0 0 1 4 0M15 9l2-2a3 3 0 0 1 4 4l-3 3a3 3 0 0 1-4 0"/><path d="M4 4l16 16"/></svg><span><b>Tools don't talk to each other</b>, so teachers move data back and forth by hand.</span></li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l9 16H3z"/><path d="M12 10v4M12 17v.5"/></svg><span><b>AI isn't accurate enough</b> to trust without checking.</span></li>
               </ul>
             </div>
 
             <div class="up-part">
               <p class="label part-n">02 · The solution</p>
               <h4>One loop: set → learn → diagnose → act</h4>
-              <p>Teachers set homework in minutes. Students solve it with an AI tutor that guides instead of answering. Every answer is graded by subtopic and depth of understanding (Bloom's levels), and the Action Lab turns that into groups and a ready lesson plan, all in one place.</p>
+              <p>Teachers set homework in minutes. Students solve it with an AI tutor that guides instead of answering. Every answer is graded by subtopic and depth of understanding (Bloom's levels), and the Action Lab turns that into groups, assigns each group the resources it needs, and drafts a ready lesson plan, all in one place.</p>
+              <ol class="uv-loop" aria-label="The upsorb loop">
+                <li><b>Set</b><span>homework in minutes</span></li>
+                <li><b>Learn</b><span>hints, not answers</span></li>
+                <li><b>Diagnose</b><span>subtopic × Bloom's level</span></li>
+                <li><b>Act</b><span>groups + targeted resources</span></li>
+              </ol>
               <div class="shots">
                 <figure class="phone"><img src="img/upsorb/create.jpg" alt="Teacher homework editor: pick class and NCERT chapter" loading="lazy"><figcaption><b>Set.</b> Pick class and chapter; AI drafts questions and answer keys.</figcaption></figure>
                 <figure class="phone"><img src="img/upsorb/tutor.jpg" alt="Student AI tutor giving a hint" loading="lazy"><figcaption><b>Learn.</b> Step-by-step hints; the answer is never handed over.</figcaption></figure>
                 <figure class="phone"><img src="img/upsorb/learning-map.jpg" alt="Per-student grid of subtopic scores by Bloom's taxonomy level" loading="lazy"><figcaption><b>Diagnose.</b> Each student mapped by subtopic and Bloom's level, not just a score.</figcaption></figure>
-                <figure class="phone"><img src="img/upsorb/action.jpg" alt="Action Lab listing students who need help on Geometric Progression" loading="lazy"><figcaption><b>Act.</b> Action Lab groups students: needs help, getting there, doing well.</figcaption></figure>
+                <figure class="phone"><img src="img/upsorb/action.jpg" alt="Action Lab listing students who need help on Geometric Progression" loading="lazy"><figcaption><b>Act.</b> Action Lab groups students (needs help, getting there, doing well) and assigns each group the right resources.</figcaption></figure>
                 <figure class="phone"><img src="img/upsorb/lesson-plan.jpg" alt="AI-generated lesson plan for Geometric Progression with teach, example and watch-out sections" loading="lazy"><figcaption><b>Remedy.</b> A 40-min lesson plan for the gap, tied to NCERT pages.</figcaption></figure>
               </div>
               <p class="swipe-hint label">Swipe for more →</p>
@@ -1170,13 +1251,14 @@ o──┘</pre>
             <div class="up-part">
               <p class="label part-n">03 · Making AI calls cheap</p>
               <h4>Measured every call, then cut cost and wait time</h4>
-              <div class="ba">
-                <div><span>AI cost / student / month</span><b>₹325 → ₹94</b></div>
-                <div><span>Tutor cost / message</span><b>₹0.36 → ₹0.03</b></div>
-                <div><span>Tutor first reply</span><b>19s → ~1s</b></div>
-                <div><span>Reading a photo</span><b>16–43s → ~2s</b></div>
+              <div class="uv-bars">
+                <div class="uv-bar"><span class="t">AI cost / student / month</span><p><i class="o" style="--w:100%">₹325</i><i class="n" style="--w:29%">₹94</i></p><b>−71%</b></div>
+                <div class="uv-bar"><span class="t">Tutor cost / message</span><p><i class="o" style="--w:100%">₹0.36</i><i class="n" style="--w:8%">₹0.03</i></p><b>−92%</b></div>
+                <div class="uv-bar"><span class="t">Tutor first reply</span><p><i class="o" style="--w:100%">19s</i><i class="n" style="--w:5%">~1s</i></p><b>~19× faster</b></div>
+                <div class="uv-bar"><span class="t">Reading a photo</span><p><i class="o" style="--w:100%">16–43s</i><i class="n" style="--w:6%">~2s</i></p><b>8–20× faster</b></div>
+                <p class="uv-key"><i class="o"></i>before <i class="n"></i>after</p>
               </div>
-              <ol class="methods">
+              <ol class="methods uv-methods">
                 <li><b>Per-call cost logging</b><span>Tokens, cost and latency on all 12 AI features. Caught a retry bug billing each grade 2–3×.</span></li>
                 <li><b>Model routing</b><span>Cheap vision model for photos; fast open model for tutoring and grading.</span></li>
                 <li><b>Prompt caching</b><span>Fixed prompt prefixes, so 96% of tutor input tokens hit the cache.</span></li>
@@ -1190,21 +1272,22 @@ o──┘</pre>
             <div class="up-part">
               <p class="label part-n">04 · Prompting for quality</p>
               <h4>Better context in, better answers out</h4>
+              <div class="uv-chain" aria-hidden="true"><span>Question</span><span>What it tests</span><span>Knowledge type</span><span>Thinking level</span><span class="out">Diagnosis</span></div>
               <ul class="up-list">
                 <li><b>Grounded in the syllabus:</b> lesson plans get exact NCERT subtopics, prerequisites and page numbers, with a rule to never invent.</li>
                 <li><b>Chained prompts:</b> diagnosis runs in 3 steps (what the question tests → knowledge type → thinking level), each with its own reference guide.</li>
                 <li><b>Full context per student:</b> the tutor sees the question, the hidden solution and the student's last 3 attempts.</li>
               </ul>
-              <div class="ba ba3">
-                <div><span>"Just give me the answer" refused</span><b>12 / 12</b></div>
-                <div><span>Hint outputs broken or leaking</span><b>4 of 6 → 0 of 94</b></div>
-                <div><span>Test tutor turns reviewed</span><b>57</b></div>
+              <div class="uv-proofs">
+                <div><p class="uv-sq" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></p><b>12 / 12</b><span>"Just give me the answer" refused</span></div>
+                <div><p class="uv-ab" aria-hidden="true"><i class="bad" style="--w:67%"></i><i class="good" style="--w:0%"></i></p><b>4 of 6 → 0 of 94</b><span>Hint outputs broken or leaking</span></div>
+                <div><p class="uv-dots" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></p><b>57</b><span>Test tutor turns reviewed</span></div>
               </div>
             </div>
 
             <div class="up-part">
               <p class="label part-n">05 · Key decisions</p>
-              <dl class="pai">
+              <dl class="pai uv-dec">
                 <div><dt>Hints, not answers</dt><dd>Students already use AI to skip thinking. Guiding keeps the learning theirs.</dd></div>
                 <div><dt>Quality over cost</dt><dd>Kept reasoning on for tutoring and grading, even though publishing is slower.</dd></div>
                 <div><dt>Scope the tutor</dt><dd>Homework questions only, no open chat: predictable cost, focused students.</dd></div>
@@ -1213,7 +1296,12 @@ o──┘</pre>
 
             <div class="up-part">
               <p class="muted">240+ commits · built with Claude Code · no engineering team</p>
-              <div class="skills"><span class="tag">FastAPI</span><span class="tag">Next.js</span><span class="tag">PostgreSQL</span><span class="tag">Redis + Celery</span><span class="tag">AWS</span><span class="tag">GitHub Actions</span><span class="tag">Android (TWA)</span></div>
+              <div class="uv-stack">
+                <p><i>App</i><span class="tag">Next.js</span><span class="tag">Android (TWA)</span></p>
+                <p><i>API</i><span class="tag">FastAPI</span></p>
+                <p><i>Data + jobs</i><span class="tag">PostgreSQL</span><span class="tag">Redis + Celery</span></p>
+                <p><i>Ship</i><span class="tag">AWS</span><span class="tag">GitHub Actions</span></p>
+              </div>
             </div>
 
             <div class="up-part">
