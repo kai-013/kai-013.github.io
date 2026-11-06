@@ -107,7 +107,8 @@ details.more[open] .close-txt{display:inline}
 .case aside{display:flex;flex-direction:column;gap:14px}
 .metric b{display:block;font-family:var(--display);font-size:44px;font-weight:800;line-height:1;font-variant-numeric:tabular-nums}
 .metric b .hl{padding:0 4px}
-.metric span{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
+.metric b.sm{font-size:30px}
+.metric > span{display:block;font-size:14px;color:var(--muted);margin-top:6px;line-height:1.4}
 .case h3{font-size:24px;font-weight:700;margin-bottom:6px}
 .case .tags{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px}
 .tag{font-family:var(--mono);font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:4px;color:var(--muted)}
@@ -168,7 +169,16 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 .proj.up{padding:0;overflow:hidden;gap:0}
 .up-hero{display:grid;grid-template-columns:1fr 260px;gap:40px;padding:36px 36px 0;align-items:end}
 .up-copy{display:flex;flex-direction:column;gap:14px;padding-bottom:32px;min-width:0}
-.up .live{color:#1F9D57}
+.pulse{position:relative;display:inline-block;width:8px;height:8px;border-radius:50%;background:#22C55E;flex:0 0 8px}
+.pulse::after{content:"";position:absolute;inset:0;border-radius:50%;background:inherit;animation:pulse 1.6s ease-out infinite}
+@keyframes pulse{from{transform:scale(1);opacity:.8}to{transform:scale(3);opacity:0}}
+@media (prefers-reduced-motion: reduce){.pulse::after{animation:none}}
+.up .live{display:inline-flex;align-items:center;gap:7px;margin-left:4px;padding:4px 11px 4px 9px;border-radius:99px;background:#1F9D57;color:#fff;font-weight:700;letter-spacing:.1em;box-shadow:0 0 0 3px rgba(31,157,87,.18)}
+.up .live .pulse{background:#B9F5CF}
+.btn.pet{display:inline-flex;align-items:center;gap:10px;background:rgba(31,157,87,.1);color:var(--ink);border-color:#1F9D57}
+.btn.pet:hover{background:#1F9D57;color:#fff}
+.btn.pet span{transition:transform .2s} .btn.pet:hover span{transform:translateY(2px)}
+#upsorb{scroll-margin-top:72px}
 .proj.up h3.up-title{font-size:clamp(26px,3.6vw,38px);font-weight:800;letter-spacing:-.02em;line-height:1.1}
 .up-stats{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .up-stats li{border-left:3px solid var(--mark);padding-left:12px;display:flex;flex-direction:column;gap:4px}
@@ -452,6 +462,179 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 .gw-met span::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;background:#8BB82E}
 .gw-met span.key{font-weight:600} .gw-met span.key::before{background:var(--lin)}
 @media (max-width:820px){.gw-two,.gw-pers,.gw-met{grid-template-columns:1fr} .gw-cover{background:linear-gradient(160deg,#C6F35E 0 22%,#6C3BF5 22% 100%)} .gw-big{order:0} .gw-rice li{grid-template-columns:22px 1fr auto} .gw-rice span{grid-column:2/-1;grid-row:2}}
+/* StubXtract deck: green + cream palette from the Hult pitch deck */
+.lcd.sxd{--li:#1F2E1F;--lm:#4F5D4F;--lb:#FFF6E6;--lin:#2F5D34;--lco:#2F5D34;--lpe:#F3EBD3;--lcy:#E6F3D8;--lli:#EAF2E1}
+.sxd .lcd-nav{border-top-color:#EDE3CC}
+.sx-cover{background:linear-gradient(90deg,rgba(20,30,18,.82),rgba(20,30,18,.25)),url(img/stub/burning.jpg) center/cover;min-height:430px;align-content:end}
+.sx-logo{font-family:var(--display);font-weight:800;font-size:clamp(44px,6.5vw,72px);line-height:1;color:#fff;letter-spacing:-.02em}
+.sx-logo span{color:#E0B83A}
+.sx-cover .lcd-tag{color:#fff!important}
+.sx-cover .lcd-chip{background:#E0B83A;color:#1F2E1F!important}
+.sx-tags{display:flex;flex-wrap:wrap;gap:8px}
+.sx-tags span{background:var(--lpe);border-radius:99px;padding:6px 12px;font-size:13px;color:var(--li)}
+.sx-img{margin:0;display:flex;flex-direction:column;gap:6px}
+.sx-img img{width:100%;border-radius:10px;display:block}
+.sx-img figcaption{font-size:11.5px;color:var(--lm)}
+.sxd .lcd-s > img.sx-render{mix-blend-mode:normal;border-radius:12px;max-height:340px;background:#2F5D34}
+.sx-list{margin:0;padding-left:18px;display:grid;gap:6px;font-size:15px;color:var(--li)}
+.sx-flow{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:x}
+.sx-flow li{counter-increment:x;position:relative;background:var(--lin);color:#fff;padding:12px 14px 12px 22px;font-size:14px;font-weight:500;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%,14px 50%);opacity:0;transform:translateX(-10px);transition:opacity .4s ease,transform .4s ease}
+.sx-flow li:first-child{clip-path:polygon(0 0,calc(100% - 14px) 0,100% 50%,calc(100% - 14px) 100%,0 100%)}
+.sx-flow li:nth-child(2){background:#3E7444;transition-delay:.1s} .sx-flow li:nth-child(3){background:#4E8B53;transition-delay:.2s} .sx-flow li:nth-child(4){background:#5FA35F;transition-delay:.3s}
+.seen .sx-flow li{opacity:1;transform:none}
+.sx-out{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.sx-out div{background:#fff;border-radius:12px;padding:14px;border-top:4px solid #E0B83A;display:flex;flex-direction:column;gap:4px}
+.sx-out b{font-family:var(--display);font-size:20px;color:var(--lin)} .sx-out span{font-size:13px;color:var(--lm)}
+.sxd .lcd-nums b{color:var(--lin)}
+.sx-imp{grid-template-columns:repeat(4,1fr)!important}
+.sx-did{grid-template-columns:1fr 1fr} .sx-did li:last-child{grid-column:1/-1}
+@media (max-width:820px){.sx-did{grid-template-columns:1fr}}
+@media (max-width:820px){.sx-flow{grid-template-columns:1fr 1fr;gap:6px} .sx-flow li,.sx-flow li:first-child{clip-path:none;border-radius:8px;padding-left:14px} .sx-out{grid-template-columns:1fr} .sx-imp{grid-template-columns:1fr 1fr!important} .sx-cover{min-height:300px}}
+/* ICICI graphics */
+.job-sum .hl{font-family:var(--display);font-weight:800;font-size:1.3em;line-height:1;white-space:nowrap;padding:0 4px}
+.ig{--bad:#C8453C;--good:var(--accent);margin-top:22px;border:1px solid var(--line);border-radius:12px;background:var(--surface);padding:18px}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .ig{--bad:#F08A80}}
+:root[data-theme="dark"] .ig{--bad:#F08A80}
+.ig p{margin:0}
+.ig-tag{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:4px;color:var(--surface);background:var(--muted);align-self:center;justify-self:start}
+.bad .ig-tag{background:var(--bad)} .good .ig-tag{background:var(--good)}
+.ig-cap{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+/* FD retries */
+.ig-fd{display:grid;grid-template-columns:1fr 170px;gap:22px;align-items:center}
+.ig-rows{display:grid;gap:12px;min-width:0}
+.ig-row{display:grid;grid-template-columns:70px 1fr;gap:12px}
+.ig-steps{list-style:none;margin:0;padding:0;display:flex;align-items:center;flex-wrap:wrap;gap:8px 22px}
+.ig-steps li{position:relative;font-size:14px;padding:7px 10px;border-radius:8px;background:var(--bg);border:1px solid var(--line)}
+.ig-steps li + li::before{content:"→";position:absolute;left:-17px;top:50%;transform:translateY(-50%);color:var(--muted)}
+.ig-steps .x{color:var(--bad);font-weight:600} .ig-steps .ok{color:var(--good);font-weight:600}
+.ig-fine{font-size:13px;color:var(--muted);padding-left:82px}
+.ig-donut{width:150px;height:150px;border-radius:50%;background:conic-gradient(var(--good) calc(var(--p)*1%),var(--line) 0);display:grid;place-items:center;justify-self:center}
+.ig-donut > div{width:112px;height:112px;border-radius:50%;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8px}
+.ig-donut b{font-family:var(--display);font-size:26px;line-height:1} .ig-donut span{font-size:11px;color:var(--muted);line-height:1.3;margin-top:4px}
+details.more[open] .ig-donut{animation:igspin 1s ease both}
+@keyframes igspin{from{transform:rotate(-90deg) scale(.85);opacity:0}to{transform:none;opacity:1}}
+/* fraud */
+.ig-fr{display:flex;flex-direction:column;gap:10px}
+.ig-chain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.ig-chain li{display:flex;flex-direction:column;gap:4px;padding:12px;border-radius:10px;background:var(--bg);border:1px solid var(--line);font-size:14px;font-weight:600}
+.ig-chain svg{width:20px;height:20px;fill:none;stroke:var(--ink);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.ig-chain span{font-size:12px;font-weight:400;color:var(--good)}
+.ig-flag{font-size:14px;padding:10px 12px;border-radius:8px;border:1px dashed var(--bad);color:var(--ink)}
+.ig-flag b{color:var(--bad)}
+.ig-guard{display:grid;grid-template-columns:1fr 1fr 1.2fr;gap:8px;align-items:stretch}
+.ig-guard > div{padding:12px;border-radius:10px;display:flex;flex-direction:column;gap:2px;font-size:13px;position:relative}
+.ig-guard b{font-size:14px} .ig-guard span{color:var(--muted)}
+.ig-guard .g1{background:var(--bg);border:1px solid var(--line)}
+.ig-guard .g2{background:var(--good);color:var(--surface)} .ig-guard .g2 span{color:var(--surface);opacity:.85}
+.ig-guard .g3{gap:6px;justify-content:center;padding:0}
+.ig-guard .g3 p{font-size:13px;padding:8px 10px;border-radius:8px;border-left:3px solid var(--good);background:var(--bg)}
+.ig-guard .g3 .no{border-left-color:var(--bad)}
+/* rules */
+.ig-rl{display:flex;flex-direction:column;gap:16px}
+.ig-merge{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.ig-merge .two{display:flex;flex-direction:column;gap:6px}
+.ig-merge .two span{font-size:13px;padding:6px 10px;border-radius:6px;border:1px dashed var(--muted);color:var(--muted);text-decoration:line-through;text-decoration-color:var(--bad)}
+.ig-merge .arr{font-size:22px;color:var(--good)}
+.ig-merge .one{display:flex;flex-direction:column;padding:10px 16px;border-radius:10px;background:var(--good);color:var(--surface)}
+.ig-merge .one b{font-family:var(--display);font-size:18px} .ig-merge .one span{font-size:13px;opacity:.85}
+.ig-lanes{display:grid;gap:10px}
+.lane{display:grid;grid-template-columns:70px 1fr 220px;gap:12px;align-items:center}
+.lane p{display:flex;flex-wrap:wrap;gap:6px}
+.lane i{font-style:normal;font-size:13px;padding:6px 10px;border-radius:6px;background:var(--bg);border:1px solid var(--line)}
+.lane .bar{display:block;width:var(--w);font-style:normal;font-family:var(--mono);font-size:12px;color:var(--surface);background:var(--bad);border-radius:6px;padding:6px 8px;white-space:nowrap}
+.lane.good .bar{background:var(--good)}
+details.more[open] .lane .bar{animation:rhgrow .9s ease both}
+/* nominee */
+.ig-nm{display:grid;grid-template-columns:240px 1fr;gap:24px;align-items:center}
+.ig-phone{border:7px solid var(--ink);border-radius:26px;padding:16px 12px;background:var(--bg);display:flex;flex-direction:column;gap:8px;font-size:12.5px}
+.ig-phone .t{font-family:var(--display);font-weight:700;font-size:15px}
+.ig-phone .s{font-family:var(--mono);font-size:10.5px;color:var(--muted);margin-bottom:4px}
+.ig-phone .opt{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:10px;border:1px solid var(--line);background:var(--surface)}
+.ig-phone .opt span{display:flex;flex-direction:column;color:var(--muted);font-size:11.5px} .ig-phone .opt b{color:var(--ink);font-size:12.5px}
+.ig-phone .opt i{flex:0 0 16px;height:16px;border-radius:50%;border:2px solid var(--muted);margin-top:2px;box-sizing:border-box}
+.ig-phone .opt.on{border-color:var(--good);box-shadow:inset 0 0 0 1px var(--good)}
+.ig-phone .opt.on i{border:5px solid var(--good)}
+.ig-phone .btn{margin-top:8px;text-align:center;padding:10px;border-radius:99px;background:var(--good);color:var(--surface);font-weight:600}
+.ig-notes{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.ig-notes li{font-size:14px;color:var(--muted);padding-left:12px;border-left:3px solid var(--good)}
+.ig-notes b{display:block;color:var(--ink);font-size:15px}
+@media (prefers-reduced-motion: reduce){details.more[open] .ig-donut,details.more[open] .lane .bar{animation:none}}
+@media (max-width:820px){
+  .ig{padding:14px}
+  .ig-fd{grid-template-columns:1fr} .ig-row{grid-template-columns:1fr;gap:6px} .ig-fine{padding-left:0}
+  .ig-chain{grid-template-columns:1fr} .ig-guard{grid-template-columns:1fr}
+  .lane{grid-template-columns:1fr;gap:6px}
+  .ig-nm{grid-template-columns:1fr} .ig-phone{max-width:240px;justify-self:center}
+}
+/* Rodic: green hydrogen roadmap graphics */
+.rh{--rh-water:#2F7FC1;--rh-sun:#D99A00}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .rh{--rh-water:#6FB2E8;--rh-sun:#F5C02E}}
+:root[data-theme="dark"] .rh{--rh-water:#6FB2E8;--rh-sun:#F5C02E}
+.rh-main{min-width:0;display:flex;flex-direction:column;gap:14px}
+.rh-main > *{margin:0}
+.rh-lead{max-width:65ch}
+.rh-step{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700;font-size:18px;margin-top:14px!important}
+.rh-step span{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:var(--accent);color:var(--surface);font-size:13px;font-family:var(--mono)}
+.rh-calc{display:flex;flex-wrap:wrap;gap:12px 14px;align-items:center}
+.rh-calc .rh-needs{flex:1 1 100%}
+.rh-kg{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;padding:12px 16px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+.rh-kg b{font-family:var(--display);font-size:30px;line-height:1}
+.rh-kg span{font-size:13px;color:var(--muted)}
+.rh-kg em{font-style:normal;font-family:var(--mono);font-size:12px}
+.rh-x{font-family:var(--mono);font-size:12px;color:var(--accent);white-space:nowrap}
+.rh-needs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.rh-needs li{--c:var(--accent);display:flex;flex-direction:column;gap:2px;padding:12px;border-radius:10px;background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--c)}
+.rh-needs .sn{--c:var(--rh-sun)} .rh-needs .wt{--c:var(--rh-water)} .rh-needs .ld{--c:var(--muted)}
+.rh-needs svg{width:22px;height:22px;fill:none;stroke:var(--c);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;margin-bottom:4px}
+.rh-needs b{font-family:var(--display);font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
+.rh-needs span{font-size:13px;color:var(--muted)}
+.rh-map{margin:0;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:8px}
+.rh-map svg{display:block;width:100%;height:auto;font-family:var(--body)}
+.rh-map .rh-mob{display:none}
+@media (max-width:820px){.rh-map svg{display:none} .rh-map .rh-mob{display:block;max-width:420px;margin:0 auto}}
+.rh-map text{fill:var(--ink);font-size:12px;text-anchor:middle}
+.rh-map .sm{fill:var(--muted);font-size:10.5px}
+.rh-map .note{fill:var(--muted);font-size:12px;font-style:italic}
+.rh-map .river{fill:none;stroke:var(--rh-water);stroke-width:10;stroke-linecap:round;opacity:.35}
+.rh-map .rlab{fill:var(--rh-water);font-family:var(--mono);font-size:11px}
+.rh-map .sun-g rect{fill:none;stroke:var(--rh-sun);stroke-width:2}
+.rh-map .sun-g path{stroke:var(--rh-sun);stroke-width:1.2;opacity:.6}
+.rh-map .hub{fill:var(--accent)}
+.rh-map .hubt{fill:var(--surface);font-weight:700;font-size:13px}
+.rh-map .hubs{fill:var(--surface);font-size:10.5px}
+.rh-map .buyer rect{fill:var(--bg);stroke:var(--line)}
+.rh-map .flow{fill:none;stroke-width:2.5;stroke-dasharray:6 6;stroke-linecap:round}
+.rh-map .flow.pw{stroke:var(--rh-sun)} .rh-map .flow.wt{stroke:var(--rh-water)} .rh-map .flow.h2{stroke:var(--accent)}
+details.more[open] .rh-map .flow{animation:rhflow 1.4s linear infinite}
+@keyframes rhflow{to{stroke-dashoffset:-24}}
+.rh-two{display:grid;grid-template-columns:1.2fr 1fr;gap:24px}
+.rh-two > div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.rh-cap{margin:0;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.rh-split{display:flex;height:34px;border-radius:8px;overflow:hidden}
+.rh-split i{flex:0 0 var(--w);background:var(--c);color:var(--surface);font-style:normal;font-family:var(--mono);font-size:12px;display:grid;place-items:center;white-space:nowrap;overflow:hidden}
+.rh-key{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;font-size:13px;color:var(--muted)}
+.rh-key i{display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--c);margin-right:6px}
+.rh-chips{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 6px}
+.rh-chips span{font-size:13px;padding:4px 10px;border:1px solid var(--line);border-radius:99px;background:var(--surface)}
+.rh-bars{display:grid;grid-template-columns:80px 1fr;gap:6px 10px;align-items:center;font-size:13px}
+.rh-bars i{display:block;height:12px;border-radius:6px;background:var(--rh-sun);width:var(--w)}
+details.more[open] .rh-bars i,details.more[open] .rh-split i{animation:rhgrow .8s ease both}
+@keyframes rhgrow{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+.rh-time{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.rh-time li{position:relative;padding:22px 12px 0 0;display:flex;flex-direction:column;gap:4px;border-top:3px solid var(--accent)}
+.rh-time li::before{content:"";position:absolute;top:-9px;left:0;width:15px;height:15px;border-radius:50%;background:var(--surface);border:3px solid var(--accent);box-sizing:border-box}
+.rh-time li:last-child::before{background:var(--accent)}
+.rh-time b{font-family:var(--display);font-size:18px}
+.rh-time span{font-size:14px;color:var(--muted);line-height:1.45}
+.rh-pai{margin-top:14px!important}
+@media (prefers-reduced-motion: reduce){details.more[open] .rh-map .flow,details.more[open] .rh-bars i,details.more[open] .rh-split i{animation:none}}
+@media (max-width:820px){
+  .rh-needs{grid-template-columns:1fr 1fr}
+  .rh-two{grid-template-columns:1fr}
+  .rh-time{grid-template-columns:1fr;gap:18px;border-left:3px solid var(--accent);padding-left:16px}
+  .rh-time li{border-top:0;padding:0}
+  .rh-time li::before{left:-25px;top:3px}
+}
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
 .proof-card{display:flex;flex-direction:column;gap:4px;padding:16px;border:1px solid var(--line);border-radius:8px;text-decoration:none;color:var(--ink);background:var(--bg)}
 .proof-card:hover{border-color:var(--ink)}
@@ -480,6 +663,7 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
     <p class="lede">Hi, I'm Kaivalya, an <strong class="hl">IIT Roorkee</strong> (Electrical Engg.) graduate and Technical Product Manager at ICICI Bank. I love building products end to end, from the first user conversation to a live launch. I'm deep into AI: I prototype my ideas fast with Claude Code and know LLMs well.</p>
     <div class="cta">
       <a class="btn primary" href="#work">See my work</a>
+      <a class="btn pet" href="#upsorb"><i class="pulse" aria-hidden="true"></i>My pet project: upsorb <span aria-hidden="true">↓</span></a>
       <a class="btn ghost" href="https://www.linkedin.com/in/kaivalya-7b7462222" target="_blank" rel="noopener">LinkedIn</a>
     </div>
 
@@ -510,7 +694,6 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
         <article class="case">
           <aside>
             <div class="metric"><b><span class="hl">+7%</span></b><span>fixed deposit success rate</span></div>
-            <div class="metric"><b>−50%</b><span>manual support tickets</span></div>
           </aside>
           <div>
             <h3>Saving deposits lost to technical glitches</h3>
@@ -519,6 +702,16 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
               <div><dt>What I did</dt><dd>Dug into the failure funnel with ops and backend teams and found ~70% of failures fixed themselves within minutes. Redesigned the journey to retry quietly in the background and took it from spec to launch.</dd></div>
               <div><dt>Key decision</dt><dd>Retry first, and raise a ticket only after every retry fails, so most customers never see the failure.</dd></div>
             </dl>
+            <div class="ig ig-fd">
+              <div class="ig-rows">
+                <div class="ig-row bad"><span class="ig-tag">Before</span>
+                  <ol class="ig-steps"><li>FD fails on a blip</li><li>Ticket raised</li><li class="x">1–2 day wait</li></ol></div>
+                <div class="ig-row good"><span class="ig-tag">After</span>
+                  <ol class="ig-steps"><li>FD fails on a blip</li><li>Quiet retries</li><li class="ok">Done in minutes</li></ol></div>
+                <p class="ig-fine">A ticket is raised only if every retry fails.</p>
+              </div>
+              <div class="ig-donut" style="--p:70" role="img" aria-label="About 70% of failures fix themselves within minutes"><div><b>~70%</b><span>of failures fix themselves in minutes</span></div></div>
+            </div>
           </div>
         </article>
         <article class="case">
@@ -532,6 +725,20 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
               <div><dt>What I did</dt><dd>Traced the pattern through support and ops data and defined the risk signals with our fraud analytics partner. Then designed <b>Trusted Guardian</b>: an elderly customer names someone they trust, who can verify flagged payments before the money moves.</dd></div>
               <div><dt>Key decision</dt><dd>Bring in the guardian only for flagged cases, not every payment, so everyday banking stays smooth.</dd></div>
             </dl>
+            <div class="ig ig-fr">
+              <p class="ig-cap">Each step looks normal on its own</p>
+              <ol class="ig-chain">
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-3 2a11 11 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>A "bank" call<span>✓ looks normal</span></li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18"/></svg>FD closed early<span>✓ looks normal</span></li>
+                <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>Money moved out at once<span>✓ looks normal</span></li>
+              </ol>
+              <p class="ig-flag"><b>Together, a fraud pattern</b> → the payment is flagged</p>
+              <div class="ig-guard">
+                <div class="g1"><b>Flagged payment</b><span>held for a moment</span></div>
+                <div class="g2"><b>Trusted Guardian</b><span>gets a request to verify</span></div>
+                <div class="g3"><p class="yes">Approves → money moves</p><p class="no">Declines → money stays safe</p></div>
+              </div>
+            </div>
           </div>
         </article>
         <article class="case">
@@ -545,11 +752,22 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
               <div><dt>What I did</dt><dd>Designed one API for both journeys with rules moved from code into config, and shipped an admin portal where the business team edits them directly.</dd></div>
               <div><dt>Key decision</dt><dd>Merge the two APIs instead of patching each one: more work upfront, but no engineering dependency for future regulatory changes.</dd></div>
             </dl>
+            <div class="ig ig-rl">
+              <div class="ig-merge">
+                <div class="two"><span>FD closure API</span><span>Overdraft API</span></div>
+                <span class="arr" aria-hidden="true">→</span>
+                <div class="one"><b>One API</b><span>rules live in config</span></div>
+              </div>
+              <div class="ig-lanes">
+                <div class="lane bad"><span class="ig-tag">Before</span><p><i>Edit code</i><i>Wait for a sprint</i><i>Release</i></p><em class="bar" style="--w:100%">1–2 weeks</em></div>
+                <div class="lane good"><span class="ig-tag">After</span><p><i>Business team edits the rule in the admin portal</i><i>Live</i></p><em class="bar" style="--w:50%">2× faster</em></div>
+              </div>
+            </div>
           </div>
         </article>
         <article class="case">
           <aside>
-            <div class="metric"><b><span class="hl">In progress</span></b><span>nominee choice in the FD journey</span></div>
+            <div class="metric"><b class="sm"><span class="hl">In progress</span></b><span>nominee choice in the FD journey</span></div>
           </aside>
           <div>
             <h3>Letting customers choose their FD nominee</h3>
@@ -558,6 +776,20 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
               <div><dt>What I did</dt><dd>Designed the nominee step in the FD journey, signed off the screens, and decided the backend architecture with the backend and compliance teams.</dd></div>
               <div><dt>Key decision</dt><dd>Keep the savings account nominee as the one-tap default and make choosing someone else optional, so the journey stays fast.</dd></div>
             </dl>
+            <div class="ig ig-nm">
+              <div class="ig-phone" aria-label="Sketch of the nominee step in the FD journey">
+                <p class="t">Open a fixed deposit</p>
+                <p class="s">Step 3 of 4 · Nominee</p>
+                <label class="opt on"><i></i><span><b>Same as my savings account</b>Asha K. · Mother</span></label>
+                <label class="opt"><i></i><span><b>Choose someone else</b>Add a new nominee</span></label>
+                <p class="btn">Continue</p>
+              </div>
+              <ul class="ig-notes">
+                <li><b>One tap</b>The savings nominee is pre-selected, so most customers just continue.</li>
+                <li><b>Optional choice</b>Anyone can pick a different person without leaving the journey.</li>
+                <li><b>Built with compliance</b>The backend design was agreed with the backend and compliance teams.</li>
+              </ul>
+            </div>
           </div>
         </article>
         </div>
@@ -572,7 +804,101 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
         </div>
         <span class="label">May – Jul 2024</span>
       </div>
-      <p class="job-sum">Assessed Bihar's infrastructure and renewable energy capacity for a green hydrogen and ammonia market, and recommended how BREDA could attract industry and make Bihar a GH2 hub by 2030.</p>
+      <p class="job-sum">In Rodic's Power &amp; Energy team I drafted a green hydrogen roadmap for <strong>BREDA</strong>, Bihar's renewable energy agency: what a hydrogen hub needs, what Bihar already has, and an infrastructure action plan to close the gap by 2030.</p>
+      <details class="more">
+        <summary><span class="open-txt">Know more</span><span class="close-txt">Show less</span></summary>
+        <div class="more-body">
+        <article class="case rh">
+          <aside>
+            <div class="metric"><b>~50 kt</b><span>a year: the hub size I planned for 2030, about 1% of India's 5 Mt target</span></div>
+            <div class="metric"><b>5</b><span>state hydrogen policies benchmarked against the national mission</span></div>
+          </aside>
+          <div class="rh-main">
+            <h3>A green hydrogen roadmap for Bihar</h3>
+            <p class="rh-lead"><b>Problem.</b> BREDA wanted green hydrogen industry in Bihar, but had no picture of what a hydrogen hub needs or what the state could offer.</p>
+
+            <p class="rh-step"><span>1</span>What a hub needs</p>
+            <div class="rh-calc">
+              <div class="rh-kg">
+                <b>1 kg</b><span>of green H₂ takes</span>
+                <em>50–55 kWh power</em><em>~20 L water</em>
+              </div>
+              <span class="rh-x" aria-hidden="true">× 50 million kg →</span>
+              <ul class="rh-needs">
+                <li class="pw"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg><b>~2.6 TWh</b><span>clean power a year</span></li>
+                <li class="sn"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M4.9 19.1 7 17M17 7l2.1-2.1"/></svg><b>~1.7 GW</b><span>of solar farms</span></li>
+                <li class="wt"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11z"/></svg><b>~1 bn L</b><span>water a year</span></li>
+                <li class="ld"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 20h18M5 20V9l7-5 7 5v11"/></svg><b>~5,000</b><span>acres of land</span></li>
+              </ul>
+            </div>
+
+            <p class="rh-step"><span>2</span>What Bihar already has</p>
+            <figure class="rh-map">
+              <svg viewBox="0 0 640 220" role="img" aria-label="Schematic: a hydrogen hub at Barauni on the Ganga, next to the refinery and fertiliser plant, fed by solar power and river water">
+                <path class="river" d="M0 150 C120 120 200 175 320 150 S520 120 640 140"/>
+                <text class="rlab" x="560" y="168">Ganga</text>
+                <g class="sun-g"><rect x="40" y="30" width="110" height="56" rx="8"/><path d="M52 74h86M52 60h86M52 46h86M84 36v46M118 36v46"/><text x="95" y="104">Solar farms</text></g>
+                <path class="flow pw" d="M150 60 C210 60 230 100 282 112"/>
+                <path class="flow wt" d="M250 148 C262 136 272 128 284 124"/>
+                <circle class="hub" cx="320" cy="112" r="34"/><text class="hubt" x="320" y="108">H₂ hub</text><text class="hubs" x="320" y="124">Barauni</text>
+                <path class="flow h2" d="M354 100 C390 80 410 64 450 56"/>
+                <path class="flow h2" d="M354 124 C400 140 420 108 470 104"/>
+                <g class="buyer"><rect x="450" y="34" width="150" height="40" rx="8"/><text x="525" y="52">Barauni refinery</text><text class="sm" x="525" y="66">uses fossil hydrogen today</text></g>
+                <g class="buyer"><rect x="470" y="86" width="150" height="40" rx="8"/><text x="545" y="104">HURL fertiliser plant</text><text class="sm" x="545" y="118">uses ammonia today</text></g>
+                <text class="note" x="320" y="208">Build next to the buyers: moving hydrogen costs more than making it close by</text>
+              </svg>
+              <svg class="rh-mob" viewBox="0 0 360 400" role="img" aria-label="Schematic: a hydrogen hub at Barauni on the Ganga, next to the refinery and fertiliser plant, fed by solar power and river water">
+                <path class="river" d="M0 300 C90 280 160 320 240 298 S330 284 360 292"/>
+                <text class="rlab" x="320" y="326">Ganga</text>
+                <g class="sun-g"><rect x="20" y="24" width="130" height="52" rx="8"/><path d="M32 64h106M32 50h106M32 36h106M70 30v42M110 30v42"/><text x="85" y="96">Solar farms</text></g>
+                <path class="flow pw" d="M90 104 C96 140 104 160 112 176"/>
+                <path class="flow wt" d="M120 292 C120 276 120 262 120 244"/>
+                <circle class="hub" cx="120" cy="210" r="34"/><text class="hubt" x="120" y="206">H₂ hub</text><text class="hubs" x="120" y="222">Barauni</text>
+                <path class="flow h2" d="M146 188 C180 150 200 110 236 72"/>
+                <path class="flow h2" d="M154 212 C170 212 186 212 200 212"/>
+                <g class="buyer"><rect x="190" y="24" width="155" height="44" rx="8"/><text x="267" y="43">Barauni refinery</text><text class="sm" x="267" y="58">uses fossil hydrogen today</text></g>
+                <g class="buyer"><rect x="200" y="190" width="150" height="44" rx="8"/><text x="275" y="209">HURL fertiliser plant</text><text class="sm" x="275" y="224">uses ammonia today</text></g>
+                <text class="note" x="180" y="366">Build next to the buyers: moving hydrogen</text>
+                <text class="note" x="180" y="384">costs more than making it close by</text>
+              </svg>
+            </figure>
+
+            <p class="rh-step"><span>3</span>What other states and the centre offer</p>
+            <div class="rh-two">
+              <div>
+                <p class="rh-cap">National Green Hydrogen Mission · ₹19,744 Cr</p>
+                <div class="rh-split" aria-label="17,490 crore production and manufacturing incentives, 1,466 crore pilot projects, 400 crore research, 388 crore other">
+                  <i style="--w:88.6%;--c:var(--accent)">₹17,490 Cr</i><i style="--w:7.4%;--c:var(--mark)"></i><i style="--w:2%;--c:#2F7FC1"></i><i style="--w:2%;--c:var(--muted)"></i>
+                </div>
+                <ul class="rh-key"><li><i style="--c:var(--accent)"></i>Production &amp; electrolyser incentives</li><li><i style="--c:var(--mark)"></i>Pilots ₹1,466 Cr</li><li><i style="--c:#2F7FC1"></i>R&amp;D ₹400 Cr</li><li><i style="--c:var(--muted)"></i>Other ₹388 Cr</li></ul>
+              </div>
+              <div>
+                <p class="rh-cap">State policies I compared</p>
+                <p class="rh-chips"><span>Uttar Pradesh</span><span>Maharashtra</span><span>Rajasthan</span><span>Andhra Pradesh</span><span>Odisha</span></p>
+                <p class="rh-cap">Solar output per panel (relative)</p>
+                <div class="rh-bars">
+                  <span>Rajasthan</span><i style="--w:100%"></i>
+                  <span>Bihar</span><i style="--w:85%"></i>
+                </div>
+              </div>
+            </div>
+
+            <p class="rh-step"><span>4</span>The draft infrastructure action plan</p>
+            <ol class="rh-time">
+              <li><b>2025</b><span>State hydrogen policy and incentives notified; grid and transmission charges waived</span></li>
+              <li><b>2026–27</b><span>Hub site near Barauni, water and land secured, offtake MoUs with refinery and fertiliser plant</span></li>
+              <li><b>2028</b><span>First electrolysers on a pilot line, part-funded by central incentives</span></li>
+              <li><b>2030</b><span>~50 kt a year with private developers on a PPP model</span></li>
+            </ol>
+
+            <dl class="pai rh-pai">
+              <div><dt>Considerations</dt><dd>Bihar gets about 15% less solar output than Rajasthan, so it can't win on cheap power. Its strengths are plenty of Ganga water and buyers already in the state.</dd></div>
+              <div><dt>Key decision</dt><dd>Build the hub around the existing buyers at Barauni, not around power supply, and close the cost gap with state incentives.</dd></div>
+            </dl>
+          </div>
+        </article>
+        </div>
+      </details>
     </article>
   </section>
 
@@ -582,10 +908,10 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
       <span class="label">Built outside the day job</span>
     </div>
     <div class="projects">
-      <article class="proj feature up">
+      <article class="proj feature up" id="upsorb">
         <div class="up-hero">
           <div class="up-copy">
-            <div class="top"><span class="label">Featured · Apr 2026 – now · <span class="live">● live</span></span></div>
+            <div class="top"><span class="label">Featured · Apr 2026 – now · <span class="live"><i class="pulse" aria-hidden="true"></i>Live</span></span></div>
             <h3 class="up-title">upsorb: see where every student is stuck, and fix it</h3>
             <p class="pitch">An AI homework platform for schools that want to raise teaching quality. Students get hints, not answers. Teachers see exactly where each student is stuck, and fix it in a click with personalised actions.</p>
             <ul class="up-stats">
@@ -691,6 +1017,170 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 
           </div>
         </details>
+      </article>
+      <article class="proj feature ark lc gw">
+        <div class="ark-in">
+          <span class="label">Product teardown · Feb 2026 · Self-initiated</span>
+          <h3 class="up-title">Groww: turning sign-ups into first investments</h3>
+          <p class="pitch">Nearly half of Groww's demat accounts sit idle. I dug into the data and users, ranked 5 fixes with RICE, and prototyped the top 3.</p>
+          <ul class="up-stats">
+            <li><b>45%</b><span>of new accounts never invest</span></li>
+            <li><b>78%</b><span>of users who invest once stay active</span></li>
+            <li><b>16M of 37.4M</b><span>demat accounts active in the last 3 months</span></li>
+          </ul>
+          <div class="gw-links"><span class="label">Try the prototypes</span><a href="https://warm-screen-world.lovable.app/" target="_blank" rel="noopener">Groww Feed ↗</a><a href="https://groalui.lovable.app/" target="_blank" rel="noopener">Groal ↗</a></div>
+
+          <div class="lcd gwd" aria-roledescription="carousel" aria-label="Groww retention deck">
+            <div class="lcd-track" tabindex="0">
+
+              <section class="lcd-s gw-cover" aria-label="Slide 1 of 9">
+                <div class="lcd-txt">
+                  <p class="gw-logo">Groww</p>
+                  <h4><span class="gw-stroke">Almost</span> <b>50%</b> of Groww demat accounts are inactive. <b>45%</b> never invested at all.</h4>
+                  <p class="lcd-chip">Retention teardown · Feb 2026</p>
+                </div>
+                <div class="gw-big"><b>45%</b><span>never made a first investment</span></div>
+              </section>
+
+              <section class="lcd-s lcd-wide" aria-label="Slide 2 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">01 · Context</p>
+                  <h4>India's largest broker, <b>34%</b> of ~40M active traders</h4>
+                  <div class="gw-two">
+                    <div>
+                      <p class="gw-sub">Active users, top trading apps</p>
+                      <div class="lcd-bars gw-share">
+                        <div><span>Groww</span><i style="--w:100%"></i><em>34%</em></div>
+                        <div><span>Angel One</span><i style="--w:65%"></i><em>20%</em></div>
+                        <div><span>Zerodha</span><i style="--w:56%"></i><em>19%</em></div>
+                        <div><span>Upstox</span><i style="--w:15%"></i><em>5%</em></div>
+                      </div>
+                    </div>
+                    <div>
+                      <p class="gw-sub">Where revenue comes from</p>
+                      <div class="lcd-split"><i style="--w:53%;--c:#6C3BF5">F&amp;O 53%</i><i style="--w:18%;--c:#9B7BFF">18%</i><i style="--w:29%;--c:#8BB82E">29%</i></div>
+                      <ul class="lcd-key"><li><i style="--c:#6C3BF5"></i>Derivatives</li><li><i style="--c:#9B7BFF"></i>Stocks</li><li><i style="--c:#8BB82E"></i>MF, MTF, others</li></ul>
+                      <p class="lcd-note"><b>Mission:</b> make investing simple, transparent and accessible to everyone.</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="lcd-s lcd-wide" aria-label="Slide 3 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">02 · Problem validation</p>
+                  <h4>Users who invest once <b>stay</b>. The leak is before the first investment.</h4>
+                  <div class="gw-two">
+                    <div class="gw-funnel">
+                      <div style="--w:100%"><b>37.4M</b><span>demat accounts</span></div>
+                      <div style="--w:55%"><b>20.4M</b><span>ever invested &gt;₹1K</span></div>
+                      <div style="--w:43%"><b>16M</b><span>active in last 3 months</span></div>
+                    </div>
+                    <div class="lcd-nums gw-nums">
+                      <div><b>78%</b><span>who invested once are still active</span></div>
+                      <div><b>77.7%</b><span>of 3-year actives never churn</span></div>
+                      <div><b>56%</b><span>DAU / MAU</span></div>
+                    </div>
+                  </div>
+                  <p class="lcd-call"><b>Problem statement:</b> improve early-stage retention by getting new users to their first investment, faster and with confidence.</p>
+                </div>
+              </section>
+
+              <section class="lcd-s lcd-wide" aria-label="Slide 4 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">03 · Who drops off</p>
+                  <h4>Young, first-time and <b>afraid of losing money</b></h4>
+                  <div class="gw-demo">
+                    <span><b>31</b> median age</span><span><b>66%</b> under 35</span><span><b>~80%</b> Tier-1 &amp; 2</span><span><b>43%</b> opened first demat on Groww</span><span><b>20%</b> women</span>
+                  </div>
+                  <div class="gw-pers">
+                    <div><b>Aashif, 24</b><i>Nursing staff · low–mid income</i><span>Fears losses, lost in jargon, wants to learn in his own language.</span></div>
+                    <div><b>Raghu, 31</b><i>Shop owner · Tier-2 city</i><span>Saves in gold and land. Low financial literacy, too many choices.</span></div>
+                    <div><b>Rose, 45</b><i>Developer · high income</i><span>Trades F&amp;O. Wants advanced, rule-based tools Groww lacks.</span></div>
+                  </div>
+                </div>
+              </section>
+
+              <section class="lcd-s lcd-wide" aria-label="Slide 5 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">04 · Prioritisation</p>
+                  <h4>5 ideas, ranked with <b>RICE</b></h4>
+                  <ol class="gw-rice">
+                    <li class="pick"><b>Groww Learn</b><span>Gamified learning + paper trading, in your language</span><em class="vh">Very high</em></li>
+                    <li class="pick"><b>Groww Feed</b><span>News personalised to your portfolio and watchlist</span><em class="hi">High</em></li>
+                    <li class="pick"><b>Groal</b><span>Goal-based SIPs with funds explained in plain words</span><em class="hi">High</em></li>
+                    <li><b>Groww Baba</b><span>AI assistant for doubts and feature discovery</span><em>Mid</em></li>
+                    <li><b>Function trading</b><span>No-code AI triggers for advanced traders</span><em>Low</em></li>
+                  </ol>
+                  <p class="lcd-note">Top 3 picked because they hit the biggest new-user pains: fear, jargon and choice overload.</p>
+                </div>
+              </section>
+
+              <section class="lcd-s" aria-label="Slide 6 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">05 · Solution 1</p>
+                  <h4>Groww Learn: <b>learn, practise, then invest</b></h4>
+                  <ul class="gw-list">
+                    <li>Video modules and shorts in <b>regional languages</b></li>
+                    <li><b>Paper trading</b> with Groww Coins: real markets, zero risk</li>
+                    <li><b>Weekly contests</b> to bring users back</li>
+                  </ul>
+                  <p class="gw-reach"><b>50–60%</b> of new users it could reach (estimate)</p>
+                </div>
+                <img src="img/groww/learn.jpg" alt="Groww Learn prototype screens: learning modules, paper trading portfolio and weekly contest" loading="lazy">
+              </section>
+
+              <section class="lcd-s" aria-label="Slide 7 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">06 · Solution 2</p>
+                  <h4>Groww Feed: <b>only the news that matters to you</b></h4>
+                  <ul class="gw-list">
+                    <li>Feed built from your <b>holdings, watchlist and sectors</b></li>
+                    <li>Short summaries, smart filters and search</li>
+                    <li>No more hunting across apps; less noise, less paralysis</li>
+                  </ul>
+                  <p class="gw-reach"><b>60–70%</b> of new users it could reach (estimate)</p>
+                  <a class="gw-try" href="https://warm-screen-world.lovable.app/" target="_blank" rel="noopener">Try the Groww Feed prototype ↗</a>
+                </div>
+                <img src="img/groww/feed.jpg" alt="Groww Feed prototype screens: personalised news feed and company news search" loading="lazy">
+              </section>
+
+              <section class="lcd-s" aria-label="Slide 8 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">07 · Solution 3</p>
+                  <h4>Groal: <b>invest for a goal, not a ticker</b></h4>
+                  <ul class="gw-list">
+                    <li>Set a target and timeline, get the <b>monthly SIP</b> you need</li>
+                    <li>Funds compared <b>in plain words</b>, costs included</li>
+                    <li><b>UPI round-off</b> savings that invest automatically</li>
+                  </ul>
+                  <p class="gw-reach"><b>60–70%</b> of new users it could reach (estimate)</p>
+                  <a class="gw-try" href="https://groalui.lovable.app/" target="_blank" rel="noopener">Try the Groal prototype ↗</a>
+                </div>
+                <img src="img/groww/goal.jpg" alt="Groal prototype screens: goal list with progress and a suggested fund explained in plain words" loading="lazy">
+              </section>
+
+              <section class="lcd-s lcd-wide" aria-label="Slide 9 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">08 · How I'd measure it</p>
+                  <h4>Success metrics, per feature</h4>
+                  <div class="gw-met">
+                    <div><b>Groww Learn</b><span>% of course completed</span><span>Paper trades in first 30 days</span><span>Contest participation</span><span class="key">Paper traders → real investors</span></div>
+                    <div><b>Groww Feed</b><span>Daily active users</span><span>Time spent on feed</span><span>Searches per day</span><span>Scroll depth</span></div>
+                    <div><b>Groal</b><span>Goals created per month</span><span>Goal completion rate</span><span>% using round-off</span><span>Avg SIP per goal</span></div>
+                  </div>
+                </div>
+              </section>
+
+            </div>
+            <div class="lcd-nav">
+              <button type="button" class="lcd-prev" aria-label="Previous slide">←</button>
+              <div class="lcd-dotsnav"></div>
+              <span class="lcd-count">1 / 9</span>
+              <button type="button" class="lcd-next" aria-label="Next slide">→</button>
+            </div>
+          </div>
+        </div>
       </article>
       <article class="proj feature ark">
         <img class="ark-cover" src="img/ark/products.jpg" alt="Ark natural gulaal packs in three shades, peela, gulabi and narangi, with the Holi gift hamper boxes" loading="lazy">
@@ -996,157 +1486,129 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
           </div>
         </div>
       </article>
-      <article class="proj feature ark lc gw">
+      <article class="proj feature ark lc sx">
         <div class="ark-in">
-          <span class="label">Product teardown · Feb 2026 · Self-initiated</span>
-          <h3 class="up-title">Groww: turning sign-ups into first investments</h3>
-          <p class="pitch">Nearly half of Groww's demat accounts sit idle. I dug into the data and users, ranked 5 fixes with RICE, and prototyped the top 3.</p>
+          <span class="label">Hult Prize 2025 · Feb – Apr 2025 · Team lead</span>
+          <h3 class="up-title">StubXtract: turning crop stubble into income, not smoke</h3>
+          <p class="pitch">A portable machine, the Xtractor, that converts stubble on the farm into xylose, glucose and lignin pellets, so farmers earn from what they used to burn. I led a team of 4.</p>
           <ul class="up-stats">
-            <li><b>45%</b><span>of new accounts never invest</span></li>
-            <li><b>78%</b><span>of users who invest once stay active</span></li>
-            <li><b>16M of 37.4M</b><span>demat accounts active in the last 3 months</span></li>
+            <li><b>Top 12</b><span>in India, Hult Prize 2025 · IIT Roorkee campus winner</span></li>
+            <li><b>$27M+</b><span>in letters of intent from an FPO and a state department</span></li>
+            <li><b>37.5%</b><span>gross margin per machine, 2-year payback</span></li>
           </ul>
-          <div class="gw-links"><span class="label">Try the prototypes</span><a href="https://warm-screen-world.lovable.app/" target="_blank" rel="noopener">Groww Feed ↗</a><a href="https://groalui.lovable.app/" target="_blank" rel="noopener">Groal ↗</a></div>
 
-          <div class="lcd gwd" aria-roledescription="carousel" aria-label="Groww retention deck">
+          <div class="lcd sxd" aria-roledescription="carousel" aria-label="StubXtract pitch deck">
             <div class="lcd-track" tabindex="0">
 
-              <section class="lcd-s gw-cover" aria-label="Slide 1 of 9">
+              <section class="lcd-s lcd-wide sx-cover" aria-label="Slide 1 of 9">
                 <div class="lcd-txt">
-                  <p class="gw-logo">Groww</p>
-                  <h4><span class="gw-stroke">Almost</span> <b>50%</b> of Groww demat accounts are inactive. <b>45%</b> never invested at all.</h4>
-                  <p class="lcd-chip">Retention teardown · Feb 2026</p>
-                </div>
-                <div class="gw-big"><b>45%</b><span>never made a first investment</span></div>
-              </section>
-
-              <section class="lcd-s lcd-wide" aria-label="Slide 2 of 9">
-                <div class="lcd-txt">
-                  <p class="lcd-k">01 · Context</p>
-                  <h4>India's largest broker, <b>34%</b> of ~40M active traders</h4>
-                  <div class="gw-two">
-                    <div>
-                      <p class="gw-sub">Active users, top trading apps</p>
-                      <div class="lcd-bars gw-share">
-                        <div><span>Groww</span><i style="--w:100%"></i><em>34%</em></div>
-                        <div><span>Angel One</span><i style="--w:65%"></i><em>20%</em></div>
-                        <div><span>Zerodha</span><i style="--w:56%"></i><em>19%</em></div>
-                        <div><span>Upstox</span><i style="--w:15%"></i><em>5%</em></div>
-                      </div>
-                    </div>
-                    <div>
-                      <p class="gw-sub">Where revenue comes from</p>
-                      <div class="lcd-split"><i style="--w:53%;--c:#6C3BF5">F&amp;O 53%</i><i style="--w:18%;--c:#9B7BFF">18%</i><i style="--w:29%;--c:#8BB82E">29%</i></div>
-                      <ul class="lcd-key"><li><i style="--c:#6C3BF5"></i>Derivatives</li><li><i style="--c:#9B7BFF"></i>Stocks</li><li><i style="--c:#8BB82E"></i>MF, MTF, others</li></ul>
-                      <p class="lcd-note"><b>Mission:</b> make investing simple, transparent and accessible to everyone.</p>
-                    </div>
-                  </div>
+                  <p class="sx-logo">Stub<span>X</span>tract</p>
+                  <p class="lcd-tag">We dream of fields that flourish, not flame.</p>
+                  <p class="lcd-chip">Hult Prize 2025 · Top 12 India</p>
                 </div>
               </section>
 
-              <section class="lcd-s lcd-wide" aria-label="Slide 3 of 9">
+              <section class="lcd-s" aria-label="Slide 2 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">02 · Problem validation</p>
-                  <h4>Users who invest once <b>stay</b>. The leak is before the first investment.</h4>
-                  <div class="gw-two">
-                    <div class="gw-funnel">
-                      <div style="--w:100%"><b>37.4M</b><span>demat accounts</span></div>
-                      <div style="--w:55%"><b>20.4M</b><span>ever invested &gt;₹1K</span></div>
-                      <div style="--w:43%"><b>16M</b><span>active in last 3 months</span></div>
-                    </div>
-                    <div class="lcd-nums gw-nums">
-                      <div><b>78%</b><span>who invested once are still active</span></div>
-                      <div><b>77.7%</b><span>of 3-year actives never churn</span></div>
-                      <div><b>56%</b><span>DAU / MAU</span></div>
-                    </div>
-                  </div>
-                  <p class="lcd-call"><b>Problem statement:</b> improve early-stage retention by getting new users to their first investment, faster and with confidence.</p>
+                  <p class="lcd-k">01 · The problem</p>
+                  <h4>Every winter, North India <b>sets its fields on fire</b></h4>
+                  <p>After the rice harvest, farmers burn leftover stubble because clearing it any other way costs time and money they don't have.</p>
+                  <div class="sx-tags"><span>Air: smog across the plains</span><span>Soil: nutrients burnt off</span><span>Health: lungs pay the price</span></div>
                 </div>
+                <figure class="sx-img"><img src="img/stub/map.jpg" alt="NASA satellite image of crop fires in Punjab and Haryana with smoke over North India" loading="lazy"><figcaption>Crop fires, Punjab &amp; Haryana. Source: NASA VIIRS</figcaption></figure>
+              </section>
+
+              <section class="lcd-s" aria-label="Slide 3 of 9">
+                <div class="lcd-txt">
+                  <p class="lcd-k">02 · The solution</p>
+                  <h4>The <b>Xtractor</b>: a refinery that fits on a farm</h4>
+                  <ul class="sx-list">
+                    <li>Compact and portable</li>
+                    <li>Energy self-sufficient</li>
+                    <li>Easy to operate for farmers</li>
+                    <li>Economically feasible</li>
+                    <li><b>Patent applied</b></li>
+                  </ul>
+                </div>
+                <img class="sx-render" src="img/stub/xtractor.jpg" alt="3D render of the Xtractor machine with tanks, a hopper and a patent pending stamp" loading="lazy">
               </section>
 
               <section class="lcd-s lcd-wide" aria-label="Slide 4 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">03 · Who drops off</p>
-                  <h4>Young, first-time and <b>afraid of losing money</b></h4>
-                  <div class="gw-demo">
-                    <span><b>31</b> median age</span><span><b>66%</b> under 35</span><span><b>~80%</b> Tier-1 &amp; 2</span><span><b>43%</b> opened first demat on Groww</span><span><b>20%</b> women</span>
-                  </div>
-                  <div class="gw-pers">
-                    <div><b>Aashif, 24</b><i>Nursing staff · low–mid income</i><span>Fears losses, lost in jargon, wants to learn in his own language.</span></div>
-                    <div><b>Raghu, 31</b><i>Shop owner · Tier-2 city</i><span>Saves in gold and land. Low financial literacy, too many choices.</span></div>
-                    <div><b>Rose, 45</b><i>Developer · high income</i><span>Trades F&amp;O. Wants advanced, rule-based tools Groww lacks.</span></div>
-                  </div>
+                  <p class="lcd-k">03 · How it works</p>
+                  <h4>From stubble to <b>three sellable products</b></h4>
+                  <ol class="sx-flow">
+                    <li>Shredded stubble</li><li>Steam explosion</li><li>Acid hydrolysis 1</li><li>Acid hydrolysis 2</li>
+                  </ol>
+                  <div class="sx-out"><div><b>Xylose</b><span>pharma, food, cosmetics</span></div><div><b>Glucose</b><span>fermentation feedstock</span></div><div><b>Lignin pellets</b><span>fuel and materials</span></div></div>
                 </div>
               </section>
 
               <section class="lcd-s lcd-wide" aria-label="Slide 5 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">04 · Prioritisation</p>
-                  <h4>5 ideas, ranked with <b>RICE</b></h4>
-                  <ol class="gw-rice">
-                    <li class="pick"><b>Groww Learn</b><span>Gamified learning + paper trading, in your language</span><em class="vh">Very high</em></li>
-                    <li class="pick"><b>Groww Feed</b><span>News personalised to your portfolio and watchlist</span><em class="hi">High</em></li>
-                    <li class="pick"><b>Groal</b><span>Goal-based SIPs with funds explained in plain words</span><em class="hi">High</em></li>
-                    <li><b>Groww Baba</b><span>AI assistant for doubts and feature discovery</span><em>Mid</em></li>
-                    <li><b>Function trading</b><span>No-code AI triggers for advanced traders</span><em>Low</em></li>
+                  <p class="lcd-k">04 · Business model</p>
+                  <h4>Machines go to the farm, <b>products go to industry</b></h4>
+                  <ol class="lcd-steps">
+                    <li><b>1</b>Deploy Xtractors with farmer groups (FPOs), run by a salaried operator</li>
+                    <li><b>2</b>Process stubble on site; farmers get paid instead of burning</li>
+                    <li><b>3</b>Collect xylose and cellulose and sell to industrial buyers</li>
                   </ol>
-                  <p class="lcd-note">Top 3 picked because they hit the biggest new-user pains: fear, jargon and choice overload.</p>
                 </div>
               </section>
 
-              <section class="lcd-s" aria-label="Slide 6 of 9">
+              <section class="lcd-s lcd-wide" aria-label="Slide 6 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">05 · Solution 1</p>
-                  <h4>Groww Learn: <b>learn, practise, then invest</b></h4>
-                  <ul class="gw-list">
-                    <li>Video modules and shorts in <b>regional languages</b></li>
-                    <li><b>Paper trading</b> with Groww Coins: real markets, zero risk</li>
-                    <li><b>Weekly contests</b> to bring users back</li>
-                  </ul>
-                  <p class="gw-reach"><b>50–60%</b> of new users it could reach (estimate)</p>
+                  <p class="lcd-k">05 · Unit economics (my part)</p>
+                  <h4><b>37.5%</b> gross margin, <b>2-year</b> payback per machine</h4>
+                  <div class="lcd-nums">
+                    <div><b>₹14.4L</b><span>revenue</span></div>
+                    <div><b>₹6.67L</b><span>operating cost</span></div>
+                    <div><b>₹0.74L</b><span>fixed cost</span></div>
+                  </div>
+                  <p class="lcd-mini">Where each rupee of revenue goes:</p>
+                  <div class="lcd-split"><i style="--w:50%;--c:#2F5D34">Raw material 50%</i><i style="--w:37.4%;--c:#8BD45A">Profit 37.4%</i><i style="--w:7.4%;--c:#C9A227"></i><i style="--w:5.2%;--c:#9AA79B"></i></div>
+                  <ul class="lcd-key"><li><i style="--c:#2F5D34"></i>Raw material 50%</li><li><i style="--c:#8BD45A"></i>Profit 37.4%</li><li><i style="--c:#C9A227"></i>Labour 7.4%</li><li><i style="--c:#9AA79B"></i>Amortisation 5.1%</li></ul>
                 </div>
-                <img src="img/groww/learn.jpg" alt="Groww Learn prototype screens: learning modules, paper trading portfolio and weekly contest" loading="lazy">
               </section>
 
               <section class="lcd-s" aria-label="Slide 7 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">06 · Solution 2</p>
-                  <h4>Groww Feed: <b>only the news that matters to you</b></h4>
-                  <ul class="gw-list">
-                    <li>Feed built from your <b>holdings, watchlist and sectors</b></li>
-                    <li>Short summaries, smart filters and search</li>
-                    <li>No more hunting across apps; less noise, less paralysis</li>
+                  <p class="lcd-k">06 · Traction</p>
+                  <h4><b>$27M+</b> in letters of intent, which I secured</h4>
+                  <ul class="sx-list">
+                    <li><b>LOIs:</b> Bhu-Amrit, Uttarakhand's largest FPO, and Haryana's farmer welfare department</li>
+                    <li><b>Appreciated by</b> NABARD's district manager and an IAS officer</li>
+                    <li><b>Status:</b> process tested in the lab, prototype design ready</li>
                   </ul>
-                  <p class="gw-reach"><b>60–70%</b> of new users it could reach (estimate)</p>
-                  <a class="gw-try" href="https://warm-screen-world.lovable.app/" target="_blank" rel="noopener">Try the Groww Feed prototype ↗</a>
                 </div>
-                <img src="img/groww/feed.jpg" alt="Groww Feed prototype screens: personalised news feed and company news search" loading="lazy">
+                <img class="sx-render" src="img/stub/lab.jpg" alt="The team in a lab and stubble samples in flasks during testing" loading="lazy">
               </section>
 
-              <section class="lcd-s" aria-label="Slide 8 of 9">
+              <section class="lcd-s lcd-wide" aria-label="Slide 8 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">07 · Solution 3</p>
-                  <h4>Groal: <b>invest for a goal, not a ticker</b></h4>
-                  <ul class="gw-list">
-                    <li>Set a target and timeline, get the <b>monthly SIP</b> you need</li>
-                    <li>Funds compared <b>in plain words</b>, costs included</li>
-                    <li><b>UPI round-off</b> savings that invest automatically</li>
-                  </ul>
-                  <p class="gw-reach"><b>60–70%</b> of new users it could reach (estimate)</p>
-                  <a class="gw-try" href="https://groalui.lovable.app/" target="_blank" rel="noopener">Try the Groal prototype ↗</a>
+                  <p class="lcd-k">07 · Impact &amp; market</p>
+                  <h4>What it could change, at scale</h4>
+                  <div class="lcd-nums sx-imp">
+                    <div><b>98,000</b><span>premature deaths that could be prevented</span></div>
+                    <div><b>150M t</b><span>less CO₂ emitted</span></div>
+                    <div><b>3×</b><span>farmer income from stubble</span></div>
+                    <div><b>$2.1B</b><span>global xylose market, 6.5% CAGR to 2032</span></div>
+                  </div>
+                  <p class="lcd-note">Impact figures are projections from our pitch, not measured results.</p>
                 </div>
-                <img src="img/groww/goal.jpg" alt="Groal prototype screens: goal list with progress and a suggested fund explained in plain words" loading="lazy">
               </section>
 
               <section class="lcd-s lcd-wide" aria-label="Slide 9 of 9">
                 <div class="lcd-txt">
-                  <p class="lcd-k">08 · How I'd measure it</p>
-                  <h4>Success metrics, per feature</h4>
-                  <div class="gw-met">
-                    <div><b>Groww Learn</b><span>% of course completed</span><span>Paper trades in first 30 days</span><span>Contest participation</span><span class="key">Paper traders → real investors</span></div>
-                    <div><b>Groww Feed</b><span>Daily active users</span><span>Time spent on feed</span><span>Searches per day</span><span>Scroll depth</span></div>
-                    <div><b>Groal</b><span>Goals created per month</span><span>Goal completion rate</span><span>% using round-off</span><span>Avg SIP per goal</span></div>
-                  </div>
+                  <p class="lcd-k">08 · What I did</p>
+                  <h4>Led a team of 4, <b>end to end</b></h4>
+                  <ul class="lcd-dec sx-did">
+                    <li><b>Partnerships</b><span>Personally secured the collaborations and $27M+ in letters of intent.</span></li>
+                    <li><b>Customers</b><span>Spoke with potential buyers and confirmed buying intent.</span></li>
+                    <li><b>User research</b><span>Went to the field with the team to understand farmers first-hand.</span></li>
+                    <li><b>Research &amp; IP</b><span>Set up work with IIT Roorkee researchers and filed for a patent.</span></li>
+                    <li><b>Mentorship</b><span>Brought IIT Roorkee professors on board as mentors.</span></li>
+                  </ul>
                 </div>
               </section>
 
@@ -1182,15 +1644,6 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
         });
       })();
       </script>
-      <article class="proj">
-        <div class="top"><h3>StubXtract</h3><span class="label">Feb – Apr 2025</span></div>
-        <p>On-field biomass processor that turns crop stubble into valuable chemicals instead of smoke.</p>
-        <ul>
-          <li>Led a team of 7 on design and workflow</li>
-          <li>Modelled unit economics to a 25% margin and 2-year payback</li>
-        </ul>
-        <div class="foot"><span class="tag">Hult Prize · Top 12 India</span></div>
-      </article>
     </div>
   </section>
 
@@ -1198,10 +1651,8 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
     <div class="sec-head"><h2>Background</h2></div>
     <div class="bg-grid">
       <div>
-        <p class="label" style="margin:0 0 18px">Experience &amp; education</p>
+        <p class="label" style="margin:0 0 18px">Education</p>
         <ol class="timeline">
-          <li><span class="when">2024 – 2025</span><div><h3>Business Head, Enactus IIT Roorkee</h3><p>Led 20 people across 4 social ventures; partnerships with government bodies and TUM.</p></div></li>
-          <li><span class="when">2024 – 2025</span><div><h3>Marketing &amp; Sponsorship Head, MaRS Robotics</h3><p>Industry sponsorships and workshops reaching 400+ students.</p></div></li>
           <li><span class="when">2021 – 2025</span><div><h3>B.Tech Electrical Engineering, IIT Roorkee</h3><p>JEE Advanced AIR 4782 (top 2.5%).</p></div></li>
         </ol>
       </div>
@@ -1216,10 +1667,11 @@ footer h2{font-size:clamp(32px,5vw,52px);font-weight:800;letter-spacing:-.02em;m
 
   <footer id="contact">
     <p class="label">Contact</p>
-    <h2>Hiring for a product role? Let's talk.</h2>
+    <h2>Let's connect.</h2>
     <div class="contact-row">
       <span class="email" id="email">itsmekaivalya13@gmail.com</span>
       <button class="btn primary" id="copy" type="button">Copy email</button>
+      <a class="btn ghost" href="tel:+919335900425">+91 93359 00425</a>
       <a class="btn ghost" href="https://www.linkedin.com/in/kaivalya-7b7462222" target="_blank" rel="noopener">LinkedIn ↗</a>
       <span class="copied" id="copied" hidden>Copied</span>
     </div>
@@ -1236,6 +1688,5 @@ document.getElementById('copy').addEventListener('click', function(){
   try { navigator.clipboard.writeText(t).then(show, fallback); } catch(e){ fallback(); }
 });
 </script>
-
 </body>
 </html>
